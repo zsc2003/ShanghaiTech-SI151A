@@ -1,0 +1,30 @@
+Let $S \subseteq \mathbb{R}^2$ be the set defined by $S = \{(x, y) \in \mathbb{R}_+^2 \mid y \leq \sqrt{x}\}$. Prove that $S$ is a convex set. \defpoints{20}
+
+\textcolor{blue}{Solution}
+
+Let $f(x)=-\sqrt{x}$, then we have
+\begin{align*}
+f'(x) &= -\dfrac{1}{2\sqrt{x}} \\
+f''(x) &= x^{-\frac{3}{2}}
+\end{align*}
+And since $x\in \mathbb{R}_+$, so we have $f''(x) \geq 0$, which means that $f(x)$ is a convex function.
+
+So $g(x)=\sqrt{x}$ is a concave function.
+
+Then $\forall (x_1, y_1), (x_2, y_2) \in S, \theta\in[0,1]$, we have
+\begin{align*}
+y_1 &\leq \sqrt{x_1} \\
+y_2 &\leq \sqrt{x_2}
+\end{align*}
+So we have
+\begin{align*}
+\theta y_1 + (1-\theta)y_2 &\leq \theta\sqrt{x_1} + (1-\theta)\sqrt{x_2} \\
+&= \theta g(x_1) + (1-\theta)g(x_2) \\
+&\leq g(\theta x_1 + (1-\theta)x_2) \text{\quad\quad (concavity of $g(x)$)} \\
+&= \sqrt{\theta x_1 + (1-\theta)x_2}
+\end{align*}
+Which means that $\theta(x_1, y_1) + (1-\theta)(x_2, y_2) = \left(\theta x_1 + (1-\theta)x_2, \theta y_1 + (1-\theta)y_2\right) \in S$.
+
+So above all, we have proved that $S$ is a convex set.
+
+\newpage

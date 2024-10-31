@@ -1,0 +1,116 @@
+Let $f(X) = ||X||_2$ be the spectral norm of a matrix $X \in \mathbb{R}^{m \times n}$, defined as the largest singular value of $X$.
+\begin{enumerate}
+\item Prove that $f(X)$ is convex. \defpoints{10}
+
+\item Prove that the nuclear norm $f(X) = \sum_{i=1}^{r} \sigma_i(X)$, where $\sigma_i(X)$ are the singular values of $X$, is convex. \defpoints{10}
+\end{enumerate}
+
+\textcolor{blue}{Solution}
+
+\begin{itemize}
+\item[1.] $f(X)=\sqrt{\lambda_{\max}(X^TX)} = \sqrt{\sup\limits_{y\in\mathbb{R}^n}\dfrac{y^T(X^TX)y}{\|y\|_2^2}}= \sup\limits_{y\in\mathbb{R}^n}\sqrt{\dfrac{(Xy)^T(Xy)}{\|y\|_2^2}} = \sup\limits_{y\in\mathbb{R}^n}\dfrac{\|Xy\|_2}{\|y\|_2}$
+
+Let $g(X,y)=\dfrac{\|Xy\|_2}{\|y\|_2}$, then for a fixed $y$, and $\forall X_1, X_2\in\mathbb{R}^{m\times n}$, $\forall \theta\in[0,1]$, we have
+\begin{align*}
+g(\theta X_1+(1-\theta)X_2,y) &= \dfrac{\|\left[\theta X_1+(1-\theta)X_2\right]y\|_2}{\|y\|_2} \\
+&\leq \dfrac{\|\theta X_1y\|_2+\|(1-\theta)X_2y\|_2}{\|y\|_2} \\
+&= \theta\dfrac{\|X_1y\|_2}{\|y\|_2}+(1-\theta)\dfrac{\|X_2y\|_2}{\|y\|_2} \\
+&= \theta f(X_1,y)+(1-\theta)f(X_2,y)
+\end{align*}
+
+So when $y$ is fixed, $g(X,y)$ is convex in $X$.\\
+From the property of pointwise supremum, we have for each $y$, $g(X,y)=\dfrac{\|Xy\|_2}{\|y\|_2}$ is convex in $X$. \\
+Then $f(X)=\sup\limits_{y\in\mathbb{R}^n}g(X,y)$ is convex.
+
+
+\item[2.] Similarly with the relation between $L_1$ norm and $L_{\infty}$ norm, we could guess that the nuclear norm is the dual norm of the spectral norm. And we could prove our guess. \\
+Define $\|X\|_*=\sum\limits_{i=1}^{r}\sigma_i(X)$ to be the nuclear norm, and $\|X\|_2=\sigma_{\max}(X)$ to be the spectral norm. \\
+i.e. we want to prove that
+$$\|X\|_* = \sup_{\|Z\|_2 \leq 1} <Z,X>$$
+
+We firstly apply SVD to $X$, and we have $X=U\Sigma V^T$, where $U\in\mathbb{R}^{m\times m}$, $V\in\mathbb{R}^{n\times n}$ are orthogonal matrices, and $\Sigma\in\mathbb{R}^{m\times n}$ is a diagonal matrix with singular values on the diagonal. And suppose that $X$ has $r$ singular values. \\
+Define $P=UV^T=UI_nV^T$, then we could find that all the singular values of $P$ are $1$, i.e. $\|P\|_2=1$. \\
+Then we can get that
+\begin{align*}
+\sup_{\|Z\|_2\leq 1}<Z,X> &= \sup_{\|Z\|_2\leq 1}\Tr(Z^TX) \\
+&\geq \Tr(P^TX) \text{\qquad\qquad\quad ($\|P\|_2=1\leq 1$) satisfies the constraint} \\
+&= \Tr((UV^T)^TU\Sigma V^T) \\
+&= \Tr(V^TVU^TU\Sigma) \text{\qquad ($\Tr(AB)=\Tr(BA)$)} \\
+&= \Tr(\Sigma) \\
+&= \sum_{i=1}^{r}\sigma_i(X) \\
+&= \|X\|_*
+\end{align*}
+i.e. we have proved that
+\begin{equation}
+\textcolor{blue}{\|X\|_* \leq \sup_{\|Z\|_2 \leq 1} <Z,X>}
+\label{eq:leq}
+\end{equation}
+
+Then we can prove the other direction of the inequality. \\
+\begin{align*}
+\sup_{\|Z\|_2 \leq 1} <Z,X> &= \sup_{\|Z\|_2 \leq 1} \Tr\left(Z^T\left(U\Sigma V^T\right)\right) \\
+&= \sup_{\|Z\|_2 \leq 1} \Tr\left(\left(V^TZ^TU\right)\Sigma\right) \text{\qquad ($\Tr(AB)=\Tr(BA)$)}
+\end{align*}
+\begin{align*}
+\sup_{\|Z\|_2 \leq 1} <Z,X> &= \sup_{\|Z\|_2 \leq 1} \sum_{i=1}^{r}\sigma_i\left(X\right)\cdot\left(V^TZ^TU\right)_{ii} \\
+&= \sup_{\|Z\|_2 \leq 1} \sum_{i=1}^{r}\sigma_i\left(X\right)\left(u_i^TZv_i\right) \text{\qquad\qquad\ ($u_i,v_i$ are the $i$-th column of $U,V$)} \\
+&= \sup_{\|Z\|_2 \leq 1} \sum_{i=1}^{r}\sigma_i\left(X\right)\left\|u_i^TZv_i\right\|_2 \\
+&\leq \sup_{\|Z\|_2 \leq 1} \sum_{i=1}^{r}\sigma_i\left(X\right)\left\|u_i\right\|_2\left\|Z\right\|_2\left\|v_i\right\|_2 \text{\quad (Cauchy-Schwarz Inequality)} \\
+&\leq \sum_{i=1}^{r}\sigma_i\left(X\right) \text{\qquad\qquad\qquad\qquad\qquad\quad\ ($\|Z\|_2\leq 1, \left\|u_i\right\|_2=\left\|v_i\right\|_2=1$)} \\
+&= \|X\|_*
+\end{align*}
+
+
+i.e. we have proved that
+\begin{equation}
+\textcolor{blue}{\|X\|_* \geq \sup_{\|Z\|_2 \leq 1} <Z,X>}
+\label{eq:geq}
+\end{equation}
+
+So combine the inequalities (\ref{eq:leq}) and (\ref{eq:geq}) we can get that the nuclear norm is the dual norm of the spectral norm. i.e.
+\begin{equation}
+\textcolor{blue}{\|X\|_* = \sup_{\|Z\|_2 \leq 1} <Z,X>}
+\label{eq:dual}
+\end{equation}
+
+
+And then we prove the triangle inequality of the nuclear norm: $\forall X,Y\in\mathbb{R}^{m\times n}$,
+\begin{align*}
+\|X+Y\|_* &= \sup_{\|Z\|_2 \leq 1} <Z,X+Y> \text{\quad\quad\quad\quad\quad\quad\quad\  (By the equation (\ref{eq:dual}) we have proved)} \\
+&= \sup_{\|Z\|_2 \leq 1} \left(<Z,X>+<Z,Y>\right) \\
+&\leq \sup_{\|Z\|_2 \leq 1} <Z,X> + \sup_{\|Z\|_2 \leq 1} <Z,Y> \text{\quad (By the property of supremum)} \\
+&= \|X\|_* + \|Y\|_*
+\end{align*}
+
+So we have proved that $\forall X,Y\in\mathbb{R}^{m\times n}$,
+\begin{equation}
+\textcolor{blue}{\|X+Y\|_* \leq \|X\|_* + \|Y\|_*}
+\label{eq:triangle}
+\end{equation}
+
+
+Suppose that the $i$-th eigenvalue of $X^TX$ is $\lambda_i(X^TX)$, and the $i$-th singular value of $X$ is $\sigma_i(X)$. Which means that $\sigma_i(X)=\sqrt{\lambda_i(X^TX)}$. \\
+Then we have the $i$-th singular value of $\theta X$, where $\theta\in[0,1]$ is
+$$\sigma_i(\theta X)=\sqrt{\lambda_i((\theta X)^T(\theta X))}=\sqrt{\lambda_i(\theta^2X^TX)}=\theta\sqrt{\lambda_i(X^TX)}=\theta\sigma_i(X)$$
+So we have
+$$\|\theta X\|_* = \sum_{i=1}^{r}\sigma_i(\theta X) = \sum_{i=1}^{r}\theta\sigma_i(X) = \theta\sum_{i=1}^{r}\sigma_i(X) = \theta\|X\|_*$$
+So above all, we have proved that $\forall\theta\in[0,1]$,
+\begin{equation}
+\textcolor{blue}{\|\theta X\|_* = \theta\|X\|_*}
+\label{eq:homo}
+\end{equation}
+
+
+With the above conclusions, we could prove that $\forall X_1,X_2\in\mathbb{R}^{m\times n}, \theta\in[0,1]$
+\begin{align*}
+f(\theta X_1 + (1-\theta)X_2) &= \|\theta X_1 + (1-\theta)X_2\|_* \\
+&\leq \|\theta X_1\|_* + \|(1-\theta)X_2\|_* \text{\quad\quad\quad (By the inequality (\ref{eq:triangle}) we have proved)} \\
+&= \theta\|X_1\|_* + (1-\theta)\|X_2\|_* \text{\quad\quad\quad (By the equality (\ref{eq:homo}) we have proved)} \\
+&= \theta f(X_1) + (1-\theta)f(X_2)
+\end{align*}
+
+So above all, we have proved that the nuclear norm is convex.
+
+\end{itemize}
+
+\newpage

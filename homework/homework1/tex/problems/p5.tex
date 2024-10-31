@@ -1,0 +1,30 @@
+Consider the ridge regression problem:
+
+$$\min_{x \in \mathbb{R}^d} \frac{1}{2n} ||Ax - b||^2 + \frac{\lambda}{2} ||x||^2$$
+
+where $A \in \mathbb{R}^{n \times d}$, $b \in \mathbb{R}^n$, $\|\cdot\|$ is the $L_2$ norm, and $\lambda > 0$. Show that the objective function is strongly convex \defpoints{5} and find the strong convexity constant in terms of $\lambda$ and the smallest eigenvalue of $A^T A$, i.e., assume that the strong convexity constant is $m$, express $m$ in terms of $\sigma$ and $\lambda$ where $\sigma$ is the smallest eigenvalue of $A^T A$.\defpoints{15} \emph{(hint: you can use the second-order differentiability of the strongly convex function.)}
+
+\textcolor{blue}{Solution}
+
+(1) Let $f(x)=\dfrac{1}{2n}\|Ax-b\|^2+\dfrac{\lambda}{2}\|x\|^2, g(x)=\dfrac{1}{2n}\|Ax-b\|^2+\dfrac{\lambda}{2}\|x\|^2-\dfrac{\mu}{2}\|x\|^2$, we want to show that $f(x)$ is strongly convex, i.e. $g(x)$ is convex for some $\mu>0$.
+
+\begin{align*}
+\nabla g(x) &= \dfrac{1}{n}A^TAx+(\lambda-\mu)x \\
+\nabla^2 g(x) &= \dfrac{1}{n}A^TA+(\lambda-\mu)I
+\end{align*}
+
+To make sure $g(x)$ is convex, we should have $$\nabla^2 g(x) \succeq 0$$
+Let $\lambda_{\min}(\cdot)$ denote the smallest eigenvalue of a matrix, then we have
+\begin{align*}
+&\quad \lambda_{\min}\left(\dfrac{1}{n}A^TA+\left(\lambda-\mu\right)I\right) = \lambda_{\min}\left(\dfrac{1}{n}A^TA\right)+\lambda-\mu \geq 0 \\
+&\Rightarrow 0 < \mu \leq \lambda+\lambda_{\min}\left(\dfrac{1}{n}A^TA\right)
+\end{align*}
+Since $\forall x\in \mathbb{R}^n, x^T (A^TA) x = \|Ax\|^2 \geq 0$, so $\lambda_{\min}\left(\dfrac{1}{n}A^TA\right) \geq 0$.
+
+And since $\lambda>0$, so $\lambda_{\min}\left(\dfrac{1}{n}A^TA\right)+\lambda > 0$, so there must exist some $\mu>0$ such that $g(x)$ is convex, which means $f(x)$ is strongly convex.
+
+(2) And among all the $\mu$ that makes $g(x)$ convex, we want to find the biggest one, which should be the convexity constant of $f(x)$, i.e.
+$$\mu = \lambda + \dfrac{\sigma}{n}$$
+where $\sigma$ is the smallest eigenvalue of $A^TA$.
+
+So above all, we have shown that $f(x)$ is $\left(\lambda+\dfrac{\sigma}{n}\right)$-strongly convex.

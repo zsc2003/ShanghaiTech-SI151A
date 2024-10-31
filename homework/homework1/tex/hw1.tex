@@ -1,0 +1,85 @@
+%!TEX program = xelatex
+\documentclass[10pt]{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{titlesec}
+\usepackage{xcolor}
+%\usepackage[shortlabels]{enumitem}
+\usepackage{enumerate}
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{listings}
+\usetikzlibrary{arrows}
+\usepackage{subfigure}
+\usepackage{graphicx,booktabs,multirow}
+\usepackage[a4paper]{geometry}
+\usepackage{upquote}
+\usepackage{float}
+\usepackage{pdfpages}
+
+\geometry{verbose,tmargin=2cm,bmargin=2cm,lmargin=2cm,rmargin=2cm}
+\geometry{verbose,tmargin=2cm,bmargin=2cm,lmargin=2cm,rmargin=2cm}
+\lstset{language=Matlab}%代码语言使用的是matlab
+\lstset{breaklines}%自动将长的代码行换行排版
+
+\input defs.tex
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\titleformat*{\section}{\centering\LARGE\scshape}
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\argmin}{\operatornamewithlimits{arg\,min}}
+\lstset{language=Matlab,tabsize=4,frame=shadowbox,basicstyle=\footnotesize,
+keywordstyle=\color{blue!90}\bfseries,breaklines=true,commentstyle=\color[RGB]{50,50,50},stringstyle=\ttfamily,numbers=left,numberstyle=\tiny,
+numberstyle={\color[RGB]{192,92,92}\tiny},backgroundcolor=\color[RGB]{245,245,244},inputpath=code}
+
+\begin{document}
+
+\date{
+Due on Nov. 4, 2024, before class}
+\title{SI151A \\ Convex Optimization and its Applications in Information Science, Fall 2024 \\
+Homework 1}
+\author{
+    Name: \textbf{Zhou Shouchen} \\
+	Student ID: 2021533042
+}
+\maketitle
+
+Read all the instructions below carefully before you start working on the assignment, and before you make a submission.
+
+\begin{itemize}
+    \item You are required to write down all the major steps towards making your conclusions; otherwise you may obtain limited points ($\leq 20\%$) of the problem.
+    \item Write your homework in English; otherwise you will get no points of this homework.
+    \item Do your homework by yourself. Any form of plagiarism will lead to $0$ point of this homework. If more than one plagiarisms during the semester are identified, we will prosecute all violations to the fullest extent of the university regulations, including but not limited to failing this course, academic probation, or expulsion from the university.
+    \item If you have any doubts regarding the grading, you need to contact the instructor or the TAs within two days since the grade is announced.
+\end{itemize}
+
+\newpage
+
+%=========================================================
+\begin{itemize}
+
+%============================1=============================
+\item[\textcolor{blue}{1}.]
+\input{problems/p1.tex}
+
+%============================2=============================
+\item[\textcolor{blue}{2}.]
+\input{problems/p2.tex}
+
+%============================3=============================
+\item[\textcolor{blue}{3}.]
+\input{problems/p3.tex}
+
+%============================4=============================
+\item[\textcolor{blue}{4}.]
+\input{problems/p4.tex}
+
+%============================5=============================
+\item[\textcolor{blue}{5}.]
+\input{problems/p5.tex}
+
+\end{itemize}
+\end{document}
+

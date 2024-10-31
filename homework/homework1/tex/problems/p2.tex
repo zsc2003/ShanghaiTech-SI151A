@@ -1,0 +1,134 @@
+Convex functions.
+
+\textbf{ For each of the following functions determine whether it is convex, concave, quasiconvex, or quasiconcave}
+\begin{enumerate}
+    \item $f(x) = e^x - 1$ on $\mathbb{R}$. \defpoints{4}
+    \item $f(x_1, x_2) = x_1 x_2$ on $\mathbb{R}^2_{++}$. \defpoints{4}
+    \item $f(x_1, x_2) = \frac{1}{x_1 x_2}$ on $\mathbb{R}^2_{++}$. \defpoints{4}
+\end{enumerate}
+\textbf{Show that the following function $f : \mathbb{R}^n \to \mathbb{R}$ is convex}
+\begin{enumerate}
+    \item[4.] $f(x) = \|A x - b\|$, where $A \in \mathbb{R}^{n \times n}$, $b \in \mathbb{R}^n$, and $\|\cdot\|$ is a norm on $\mathbb{R}^n$. \defpoints{4}
+    \item[5.] $f(x) = -\log \left( -\log \left( \sum_{i=1}^n e^{a_i^Tx + b_i} \right) \right)$ on $\textbf{dom }f = \{x|\sum_{i=1}^n e^{a_i^Tx + b_i} < 1\}$. \emph{(hint: You can use the fact that $\log \left( \sum_{i=1}^n e^{y_i} \right)$ is convex.)} \defpoints{4}
+\end{enumerate}
+
+\textcolor{blue}{Solution}
+
+We firstly introduce two Lemmas:
+
+Lemma1: If $f(x)$ is convex, then $f(x)$ is quasiconvex. \\
+Proof: \\
+Let $S_{\alpha} = \{x\in\dom f \mid f(x) \leq \alpha\}, \forall \alpha\in\mathbb{R}$ \\
+Then $\forall x,y\in S_{\alpha}$, we have $f(x), f(y)\leq \alpha$, and $\forall \theta\in[0,1]$, we have
+\begin{align*}
+f\left(\theta x + (1-\theta)y \right) &\leq \theta f(x) + (1-\theta)f(y) \text{\quad(\text{by convexity of } f)} \\
+&\leq \theta \alpha + (1-\theta)\alpha \\
+&= \alpha
+\end{align*}
+Which means that $\theta x + (1-\theta)y \in S_{\alpha}$, so $S_{\alpha}$ is convex $\forall \alpha\in\mathbb{R}$, so $f(x)$ is quasiconvex. \\
+
+
+Lemma2: If $a,b\geq 0$ and $\theta\in[0,1]$, then $\theta a + (1-\theta)b \geq a^{\theta}b^{1-\theta}$. \\
+Proof: \\
+1. If $a=0$ or $b=0$, it obviously takes the equality. \\
+2. If $a,b>0$, then let $f(x)=\log x$. We can get that $f'(x)=\dfrac{1}{x}>0, f''(x)=-\dfrac{1}{x^2}<0$, so $f(x)$ is concave and non-decreasing. \\
+Then by Jensen's inequality and the monotonicity of $f(x)$, we have
+\begin{align*}
+\log\left(\theta a + (1-\theta)b\right) &\geq \theta\log a + (1-\theta)\log b \\
+&= \log a^{\theta} + \log b^{(1-\theta)} \\
+&= \log a^{\theta}b^{(1-\theta)} \\
+\Rightarrow \theta a + (1-\theta)b &\geq a^{\theta}b^{1-\theta}
+\end{align*}
+So we have proved that $\theta a + (1-\theta)b \geq a^{\theta}b^{1-\theta},\forall a,b\geq 0,\theta\in[0,1]$.
+
+
+\begin{itemize}
+\item[1.] $f(x)=e^x-1,f'(x)=e^x,f''(x)=e^x>0$, so $f(x)$ is \textcolor{blue}{convex}. \\
+And from the Lemma1 we have proved, $f(x)$ is also \textcolor{blue}{quasiconvex}. \\
+Since $f(x)$ is not a linear function, and it is convex, so it is \textcolor{blue}{not concave}. \\
+Let $S_{\alpha}=\{x\mid f(x)=e^x\geq \alpha\}$, $\forall \alpha\in\mathbb{R}$. Then $\forall x,y\in S_{\alpha}$, we have $e^x\geq \alpha, e^y\geq \alpha$, and $\forall \theta\in[0,1]$, we have \\
+<1>. If $\alpha\leq 0$, then $e^{\theta x + (1-\theta)y}>0\geq \alpha$. \\
+<2>. If $\alpha>0$, then
+\begin{align*}
+e^{\theta x + (1-\theta)y} &= e^{\theta x}\cdot e^{(1-\theta)y} \\
+&= \left(e^{x}\right)^{\theta}\cdot \left(e^{y}\right)^{1-\theta} \\
+&\geq \alpha^{\theta} \cdot \alpha^{1-\theta} \\
+&= \alpha
+\end{align*}
+Which means that $\theta x + (1-\theta)y \in S_{\alpha}, \forall \alpha\in R$, so $S_{\alpha}$ is convex $\forall \alpha\in R$. \\
+So $f(x)$ is \textcolor{blue}{quasiconcave}.
+
+So above all, we have proved that $f(x)=e^x-1$ is convex,not concave, quasiconvex, and quasiconcave.
+
+
+\item[2.] $f(x_1,x_2)=x_1x_2$, $\nabla f(x_1,x_2)=\begin{bmatrix}x_2 \\ x_1\end{bmatrix}$, $\nabla^2 f(x_1,x_2)=\begin{bmatrix}0 & 1 \\ 1 & 0\end{bmatrix}$, $\left|\nabla^2 f(x_1,x_2)\right|=-1<0$, so $f(x_1,x_2)$ is \textcolor{blue}{not convex}.
+
+Similarly, let $g(x_1,x_2)=-f(x_1,x_2)=-x_1x_2$, $\nabla g(x_1,x_2)=\begin{bmatrix}-x_2 \\ -x_1\end{bmatrix}$, $\nabla^2 g(x_1,x_2)=\begin{bmatrix}0 & -1 \\ -1 & 0\end{bmatrix}$, $\left|\nabla^2 g(x_1,x_2)\right|=-1<0$, so $f(x_1,x_2)$ is \textcolor{blue}{not concave}.
+
+Let $S_{\alpha}=\{(x_1,x_2)\mid x_1x_2\leq\alpha\}$, then $\forall\alpha > 0, \alpha\neq 1$, we have $(1,\alpha)\in S_{\alpha}, (\alpha,1)\in S_{\alpha}$, and let $\theta=\dfrac{1}{2}\in[0,1]$, we have
+$$\left(\dfrac{1+\alpha}{2}\right)^2-\alpha = \dfrac{(\alpha-1)^2}{4} > 0$$
+Which means that $\theta(1,\alpha)+(1-\theta)(\alpha,1)=\left(\dfrac{1+\alpha}{2},\dfrac{1+\alpha}{2}\right)\notin S_{\alpha}$, so $S_{\alpha}$ is not convex for some $\alpha$, so $f(x_1,x_2)$ is \textcolor{blue}{not quasiconvex}.
+
+Let $S_{\alpha}'=\{(x_1,x_2)\mid x_1x_2\geq\alpha\}$, then $\forall\alpha\in\mathbb{R}$: $\forall (x_1,x_2),(y_1,y_2)\in S_{\alpha}'$, we have $x_1x_2\geq\alpha, y_1y_2\geq\alpha$, and $\forall \theta\in[0,1]$, from Lemma2, we have:
+\begin{align*}
+\theta x_1 + (1-\theta)y_1 &\geq x_1^{\theta}y_1^{1-\theta} \\
+\theta x_2 + (1-\theta)y_2 &\geq x_2^{\theta}y_2^{1-\theta}
+\end{align*}
+And we times these two inequality, we can get that
+\begin{equation}
+\left[\theta x_1 + (1-\theta)y_1\right]\left[\theta x_2 + (1-\theta)y_2\right] \geq \left(x_1^{\theta}y_1^{1-\theta}\right)\left(x_2^{\theta}y_2^{1-\theta}\right)
+\label{eq:dudect}
+\end{equation}
+
+Let $\left(z_1,z_2\right)=\theta\left(x_1,x_2\right)+(1-\theta)\left(y_1,y_2\right)=\left[\theta x_1 + (1-\theta)y_1, \theta x_2 + (1-\theta)y_2\right]$, then we have
+\begin{align*}
+z_1z_2 &= \left[\theta x_1 + (1-\theta)y_1\right] \cdot \left[\theta x_2 + (1-\theta)y_2\right] \\
+&\geq \left(x_1^{\theta}y_1^{1-\theta}\right)\left(x_2^{\theta}y_2^{1-\theta}\right) \text{\quad\quad (from inequality we proved above (\ref{eq:dudect}))}\\
+&= \left(x_1x_2\right)^{\theta}\left(y_1y_2\right)^{1-\theta} \\
+&\geq \alpha^{\theta}\alpha^{1-\theta} \\
+&= \alpha
+\end{align*}
+
+So above all, we have proved that $\forall\alpha\in\mathbb{R}, S_{\alpha}'$ is convex, so $f(x_1,x_2)$ is \textcolor{blue}{quasiconcave}.
+
+So above all, we have proved that $f(x_1,x_2)=x_1x_2$ is not convex, not concave, not quasiconvex, and quasiconcave.
+
+
+\item[3.] $f(x_1,x_2)=\dfrac{1}{x_1x_2}$, $\nabla f(x_1,x_2)=\begin{bmatrix}-\frac{1}{x_1^2x_2} \\ -\frac{1}{x_1x_2^2}\end{bmatrix}$, $\nabla^2 f(x_1,x_2)=\begin{bmatrix}\frac{2}{x_1^3x_2} & \frac{1}{x_1^2x_2^2} \\ \frac{1}{x_1^2x_2^2} & \frac{2}{x_1x_2^3}\end{bmatrix}$. \\
+Since $\dfrac{2}{x_1^3x_2}>0$, and $\left|\nabla^2 f(x_1,x_2)\right|=\dfrac{3}{x_1^4x_2^4}>0$, so $f(x_1,x_2)$ is \textcolor{blue}{convex}.
+
+From Lemma1 we have proved, $f(x_1,x_2)$ is also \textcolor{blue}{quasiconvex}.
+
+Since $f(x_1,x_2)$ is not a linear function, and it is convex, so it is \textcolor{blue}{not concave}.
+
+Let $S_{\alpha}= \{(x_1,x_2)\mid \dfrac{1}{x_1x_2}\geq \alpha\}$, then $\forall \alpha>0,\alpha\neq 1$, we have $\left(1,\dfrac{1}{\alpha}\right),\left(\dfrac{1}{\alpha},1\right)\in S_{\alpha}$, and let $\theta=\dfrac{1}{2}\in[0,1]$, we have
+$$\left(\dfrac{1}{\frac{1}{2}\cdot 1 + \frac{1}{2}\cdot \frac{1}{\alpha}}\right)^2 - \alpha = \alpha\left(\dfrac{4}{\alpha+\frac{1}{\alpha}+2}-1\right) < 0$$
+So we have given counterexample that $S_{\alpha}$ is not convex for some $\alpha$, so $f(x_1,x_2)$ is \textcolor{blue}{not quasiconvex}.
+
+So above all, $f(x_1,x_2)$ is convex, not concave, quasiconvex, and not quasiconcave.
+
+
+\item[4.] Since $\|\cdot\|$ is a norm on $\mathbb{R}^n$, so we have $\forall\theta\in[0,1],x\in\mathbb{R}^n, \|\theta x\|=\theta\|x\|$, and $\forall x,y\in\mathbb{R}^n$, we have $\|x+y\|\leq\|x\|+\|y\|$. \\
+So $\forall x,y\in\mathbb{R}^n, \theta\in[0,1]$, we have
+\begin{align*}
+f(\theta x + (1-\theta)y) &= \|A(\theta x + (1-\theta)y) - b\| \\
+&= \|\theta(Ax-b)+(1-\theta)(Ay-b)\| \\
+&\leq \|\theta(Ax-b)\| + \|(1-\theta)(Ay-b)\| \text{\quad\quad (by triangle inequality)} \\
+&= \theta\|Ax-b\| + (1-\theta)\|Ay-b\| \\
+&= \theta f(x) + (1-\theta)f(y)
+\end{align*}
+So we have proved that $f(x)=\|Ax-b\|$ is convex.
+
+
+\item[5.] Let $\phi(y)=\log\left(\sum\limits_{i=1}^ne^{y_i}\right)$, and we have known that $\phi(y)$ is convex. \\
+From the property of composition with affain functions, we can get that $\phi\left(a_i^Tx+b\right)$ is convex. \\
+Let $g:\mathbb{R}^n\to\mathbb{R}$, $g(x) = -\phi(a_i^Tx+b) = -\log\left(\sum\limits_{i=1}^ne^{a_i^Tx+b_i}\right)$, which is a concave function. \\
+And let $h:\mathbb{R}_{++}\to\mathbb{R}$, $h(x)=-\log x$, and $h'(x)=-\dfrac{1}{x}<0, h''(x)=\dfrac{1}{x^2}>0$, so $h(x)$ is a convex function, and it is non-increasing.
+
+From the composition with scalar functions, since $f(x)=h\left(g(x)\right)$, where $h(x)$ is convex and non-increasing, $g(x)$ is concave, so $f(x)$ is convex.
+
+So above all, we have proved that $f(x)=-\log\left(-\log\left(\sum\limits_{i=1}^ne^{a_i^Tx+b_i}\right)\right)$ is convex.
+
+\end{itemize}
+
+\newpage
