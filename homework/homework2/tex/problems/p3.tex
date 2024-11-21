@@ -1,0 +1,30 @@
+\item[\uppercase\expandafter{\romannumeral3}.]\textbf{Semidefinite Programming (SDP)}
+
+Consider the following eigenvalue optimization problem:
+$$
+\begin{aligned}
+\min_{\mathbf{w}, \mathbf{S}}\;\; &\lambda_{max}(\mathbf{S})-\lambda_{min}(\mathbf{S}),\\
+s.t.\;\;& \mathbf{S}=\mathbf{B}-\sum_{i=1}^{k}w_i\mathbf{A}_i,
+\end{aligned}
+$$
+where $\mathbf{B}\in \mathbb R^{n\times n}$ and $\mathbf{A}_i\in \mathbb R^{n\times n}, i=1, \dots, k$ are given symmetric data matrices, $w_i\in\mathbb{R}, i=1, \dots, k$ are weights, and $\lambda(\cdot)$ means the eigenvalue. Equivalently reformulate the problem into a SDP. \defpoints{20}
+
+\textcolor{blue}{Solution}
+
+Since $\pmb B, \pmb A_i$ are symmetric, then $\pmb S$ is symmetric, which means that $\pmb S$ has $n$ eigenvalues. \\
+Let $u=\lambda_{\max}(\pmb S), v=\lambda_{\min}(\pmb S)$, then we have
+$$ v\pmb I \preceq \pmb S =\mathbf{B}-\sum_{i=1}^{k}w_i\mathbf{A}_i \preceq u\pmb I$$
+And it could be reformulate as
+\begin{align*}
+v\pmb I + \sum_{i=1}^k w_i\pmb A_i &\preceq \pmb B \\
+u(-\pmb I) + \sum_{i=1}^k w_i (-\pmb A_i) &\preceq -\pmb B
+\end{align*}
+
+So above all, the problem could be reformulated as a SDP problem:
+\begin{align*}
+\min_{\mathbf{w}\in\mathbb{R}^n, u\in\mathbb{R}, v\in\mathbb{R}} &\quad u-v \\
+\text{s.t.} &\quad v\pmb I + \sum_{i=1}^k w_i\pmb A_i \preceq \pmb B \\
+&\quad u(-\pmb I) + \sum_{i=1}^k w_i (-\pmb A_i) \preceq -\pmb B \\
+\end{align*}
+
+\newpage

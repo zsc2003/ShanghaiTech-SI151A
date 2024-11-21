@@ -1,0 +1,89 @@
+\item[\uppercase\expandafter{\romannumeral4}.]\textbf{Duality}
+
+Derive a dual for the problem
+\begin{align*}
+\min_{\mathbf{x, y}} &\quad -\mathbf{c}^T \mathbf{x} + \sum_{i=1}^m y_i \log y_i \\
+\text{s.t.} &\quad \mathbf{P x = y} \\
+& \mathbf{x} \succeq 0, \quad \mathbf{1}^T \mathbf{x} = 1,
+\end{align*}
+where $\mathbf{P} \in \mathbb{R}^{m \times n}$ has nonnegative elements, and its columns add up to one (i.e., $\mathbf{P}^T \mathbf{1} = \mathbf{1}$). The variables are $\mathbf{x} \in \mathbb{R}^n$, $\mathbf{y} \in \mathbb{R}^m$. (For $c_j = \sum_{i=1}^m p_{ij} \log p_{ij}$, the optimal value is, up to a factor $\log 2$, the negative of the capacity of a discrete memoryless channel with channel transition probability matrix $P$; see exercise 4.57 in Boyd S, et al. \textbf{Convex optimization} (you can find it in blackboard).)
+
+Simplify the dual problem as much as possible.\defpoints{20}
+
+\textcolor{blue}{Solution}
+
+Let $\pmb\lambda\in\mathbb{R}^m$ be the multiplier of the equality constraint $\pmb{Px}=\pmb y$, $\pmb\mu\in\mathbb{R}^n$ be the multiplier of the inequality constraint $\pmb x\succeq 0$, and $\nu\in\mathbb{R}$ be the multiplier of the equality constraint $\pmb 1^{\top}\pmb x=1$. \\
+Since $\mu$ is the multiplier of inequality constrain, so $\pmb \mu\succeq 0$. \\
+Then Lagrangian of the problem is
+\begin{align*}
+\mathcal{L}(\pmb x,\pmb  y,\pmb \lambda,\pmb \mu,\nu) &= -\pmb{c}^{\top} \pmb{x} + \sum_{i=1}^m y_i \log y_i+\pmb\lambda^{\top}(\pmb{Px}-\pmb y)-\pmb\mu^{\top}\pmb x+\nu(\pmb 1^{\top}\pmb x-1) \\
+&= \left(\pmb P^{\top}\pmb \lambda - \pmb c - \pmb \mu + \nu\pmb 1\right)^{\top}\pmb x + \sum_{i=1}^m y_i \left(\log y_i - \lambda_i \right) - \nu \\
+&= \phi(\pmb x) + \left(\sum_{i=1}^m h_i(y_i)\right) - \nu
+\end{align*}
+We can find that $\mathcal{L}$ is seperable in $\pmb x$ and all $y_i$:
+\begin{align*}
+\phi(\pmb x) &= \left(\pmb P^{\top}\pmb \lambda - \pmb c - \pmb \mu + \nu\pmb 1\right)^{\top}\pmb x \\
+h_i(y_i) &= \sum_{i=1}^m y_i \left(\log y_i - \lambda_i \right)
+\end{align*}
+So for $\pmb x$:
+$$\phi(\pmb x) = \begin{cases}
+0 & \text{if } \pmb P^{\top}\pmb \lambda - \pmb c - \pmb \mu + \nu\pmb 1 = \pmb 0 \\
+-\infty & \text{otherwise}
+\end{cases}$$
+And for each component of $\pmb y$:
+\begin{align*}
+h_i(y_i) &= y_i \left(\log y_i - \lambda_i\right) \\
+h_i'(y_i) &= 1 + \log y_i - \lambda_i \\
+h_i''(y_i) &= \frac{1}{y_i} > 0
+\end{align*}
+So $h_i(y_i)$ is a convex function. To minimize $h_i(y_i)$, we need to find the point where the first derivative is zero:
+$$h_i'(y_i^*) = 0 \Rightarrow y_i^* = e^{\lambda_i-1} \Rightarrow h_i(y_i)_{\min} = h_i(y_i^*) = -e^{\lambda_i-1}$$
+
+So to make sure the problem is feasible, we have $\pmb P^{\top}\pmb \lambda - \pmb c - \pmb \mu + \nu\pmb 1 = \pmb 0$, and the objective function of the dual problem is
+\begin{align*}
+g(\pmb \lambda,\pmb \mu,\nu) &= \inf_{\pmb x,\pmb y} \mathcal{L}(\pmb x,\pmb  y,\pmb \lambda,\pmb \mu,\nu) \\
+&= \inf_{\pmb x} \phi(\pmb x) + \left(\sum_{i=1}^m \inf_{y_i} h_i(y_i)\right) - \nu \\
+&= 0 + \left(\sum_{i=1}^m -e^{\lambda_i-1} \right) - \nu \\
+&= -\left(\sum_{i=1}^m e^{\lambda_i-1} \right) - \nu
+\end{align*}
+To achieve the minimum, we have
+$$\left.\begin{array}{l}
+\pmb P^{\top}\pmb \lambda - \pmb c - \pmb \mu + \nu\pmb 1 = \pmb 0 \\
+\pmb \mu \succeq 0
+\end{array}\right\} \Rightarrow \pmb P^{\top}\pmb \lambda + \nu\pmb 1 \succeq \pmb c$$
+
+So the dual problem is:
+\begin{align*}
+\max_{\pmb \lambda\in\mathbb{R}^m, \nu\in\mathbb{R}} &\quad -\left(\sum_{i=1}^m e^{\lambda_i-1} \right) - \nu \\
+\text{s.t.} &\quad \pmb P^{\top}\pmb \lambda + \nu\pmb 1 \succeq \pmb c
+\end{align*}
+
+To have a better simplification, we can find that for each constrain about $w_i$ and $\nu$, all these constrains uses one inequality to constrain two variables, so we can relax one of the variables by letting $\pmb w=\pmb\lambda + \nu\pmb I$.
+
+Since $\pmb P^{\top}\pmb 1=\pmb 1$, so
+$$\pmb P^{\top}\pmb \lambda + \nu\pmb 1 = \pmb P^{\top}\pmb \lambda + \nu\pmb P^{\top}\pmb 1 = \pmb P^{\top}\left(\pmb\lambda + \nu\pmb I\right) = \pmb P^{\top}\pmb w$$
+
+So the dual problem can be further simplified as:
+\begin{align*}
+\max_{\pmb w\in\mathbb{R}^m,v\in\mathbb{R}} &\quad -\left(\sum_{i=1}^m e^{w_i-v-1} \right)-v \\
+\text{s.t.} &\quad \pmb P^{\top}\pmb w \succeq \pmb c
+\end{align*}
+Since their has no constrains on $\nu$, so we can simplify the objective function: \\
+Let $\psi(\nu) = -\left(\sum\limits_{i=1}^m e^{w_i-\nu-1} \right) - \nu$, then
+\begin{align*}
+\psi'(\nu) &= \left(\sum\limits_{i=1}^m e^{w_i-1} \right)e^{-\nu} - 1 \\
+\psi''(\nu) &= -\left(\sum\limits_{i=1}^m e^{w_i-1}\right)e^{-\nu} < 0
+\end{align*}
+So $\psi(\nu)$ is a concave function, and the maximum of $\psi(\nu)$ is at the point where the first derivative is zero:
+$$\psi'(\nu^*) = 0 \Rightarrow e^{-\nu^*} = \frac{1}{\sum\limits_{i=1}^m e^{w_i-1}} \Rightarrow \nu^* = \log\left(\sum\limits_{i=1}^m e^{w_i-1}\right)$$
+So we have:
+$$\psi(\nu)_{\max} = \psi(\nu^*) = -\log\left(\sum\limits_{i=1}^m e^{w_i-1}\right) - 1 = \log\left(\sum\limits_{i=1}^m \dfrac{e^{w_i}}{e}\right) - 1 = -\log\left(\sum\limits_{i=1}^m e^{w_i}\right) - 2$$
+
+So the objective function is simplified as getting the maximum of $-\log\left(\sum\limits_{i=1}^m e^{w_i}\right) - 2$, which also means that getting the minimum of $\log\left(\sum\limits_{i=1}^m e^{w_i}\right) + 2$.
+So the dual problem can be further simplified as:
+\begin{align*}
+\min_{\pmb w\in\mathbb{R}^m} &\quad \log\left(\sum_{i=1}^m e^{w_i}\right) + 2 \\
+\text{s.t.} &\quad \pmb P^{\top}\pmb w \succeq \pmb c
+\end{align*}
+
+\newpage

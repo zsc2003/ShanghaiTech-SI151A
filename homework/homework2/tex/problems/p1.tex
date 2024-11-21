@@ -1,0 +1,36 @@
+\item[\uppercase\expandafter{\romannumeral1}.] \textbf{Convex Optimization Problem}
+
+Consider the following compressive sensing problem via \(\ell_1\)-minimization:
+\[
+\begin{aligned}
+& \text{minimize} && \|\pmb z\|_1 \\
+& \text{subject to} && \pmb A \pmb z = \pmb y,
+\end{aligned}
+\]
+where \(\pmb A \in \mathbb{R}^{m\times d}\), \(\pmb z \in \mathbb{R}^d , \pmb y \in \mathbb{R}^m\).
+
+Equivalently reformulate the problem into a linear programming problem. \defpoints{20}
+
+\textcolor{blue}{Solution}
+
+Let $z_i^+=\max\{z_i,0\}\geq 0$, $z_i^-=\max\{-z_i,0\}\geq 0$, $i=1,2,\ldots,d$, where $z_i$ is the $i$-th component of $\pmb z$. \\
+And let $\pmb z^+=\left(z_1^+,\ldots, z_d^+\right)^{\top}$, $\pmb z^-=\left(z_1^-,\ldots, z_d^-\right)^{\top}$. \\
+Then we have
+\begin{align*}
+z_i = z_i^+ - z_i^- , |z_i| = z_i^+ + z_i^- ,&\quad i=1,2,\ldots,d \\
+z_i^+, z_i^-\geq 0 ,&\quad i=1,2,\ldots,d
+\end{align*}
+So the objective function can be rewritten as
+$$\|\pmb z\|_1 = \sum_{i=1}^d |z_i| = \sum_{i=1}^d\left(z_i^+ + z_i^-\right) = \pmb 1^{\top}\left(\pmb z^+ + \pmb z^-\right) = \pmb 1^{\top}\pmb z^+ + \pmb 1^{\top}\pmb z^-$$
+And the constraint can be rewritten as
+$$\pmb A\pmb z = \pmb y \Leftrightarrow \pmb A\left(\pmb z^+ + \pmb z^-\right)= \pmb y\Leftrightarrow \pmb A\pmb z^+ - \pmb A\pmb z^- = \pmb y$$
+
+So above all, the original problem can be equivalently reformulated as a LP problem:
+\[\begin{aligned}
+& \min\limits_{\pmb z^+,\pmb z^-\in\mathbb{R}^d} && \pmb 1^{\top}\pmb z^+ + \pmb 1^{\top}\pmb z^- \\
+& \text{subject to} && \pmb A\pmb z^+ - \pmb A\pmb z^- = \pmb y \\
+& && \pmb z^+ \succeq 0 \\
+& && \pmb z^- \succeq 0
+\end{aligned}\]
+
+\newpage

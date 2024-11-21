@@ -1,0 +1,116 @@
+\item[\uppercase\expandafter{\romannumeral5}.]\textbf{Convex Problem Applications in Power Allocation}
+
+Consider the following power allocation problem
+$$
+\begin{aligned}
+\underset{p_1, \ldots, p_K}{\operatorname{maximize}}\;\; & \sum_{k=1}^K \ln \left(1+\frac{p_k\left|h_k\right|^2}{N_0}\right) \\
+\text { subject to } & \sum_{k=1}^K p_k=P_{\max } \\
+& p_k \geq 0, k=1, \ldots, K
+\end{aligned}
+$$
+where $N_0>0$.
+\begin{enumerate}
+    \item Determine that this problem is convex or not, and provide your argument. \defpoints{5}
+    \item Write down the dual problem. \defpoints{5}
+    \item Derive the KKT conditions. \defpoints{5}
+    \item Derive the expression of the optimal solution to the problem above. \defpoints{5}
+\end{enumerate}
+
+\textcolor{blue}{Solution}
+
+1. The problem is convex.
+
+Proof: \\
+<1> For objective function: \\
+Let $f(x) = \ln x$, then $f'(x)=\dfrac{1}{x}, f''(x)=-\dfrac{1}{x^2}<0$. So $f(x)$ is a concave function. \\
+And from the property of composition with affaine function, we known that $1+\dfrac{p_k|h_k|^2}{N_0}$ is an affain function of $p_k$, so we have $f\left(1+\dfrac{p_k|h_k|^2}{N_0}\right)$ is a concave function of $p_k$. \\
+And from the property of non-negative weighted sum, we have $\sum\limits_{k=1}^K f\left(1+\dfrac{p_k|h_k|^2}{N_0}\right)= \sum\limits_{k=1}^K \ln \left(1+\dfrac{p_k\left|h_k\right|^2}{N_0}\right)$ is a concave function of $\left(p_1,\ldots,p_K\right)$. \\
+And maximize a concave function is same as minimize a convex function. So the objective function could be regard as convex.
+
+<2> For constrains: \\
+The first constrain is an equality constrain, and it is an affaine function. \\
+The second constrain is an inequality constrain, and it is obviously a convex function. \\
+
+So above all, the optimization problem has a convex objective function, convex inequality constrains and affain equality constrains. So the problem is a convex optimization problem. \\
+
+2. From the analysis above, we can reformulate the problem as
+$$
+\begin{aligned}
+\underset{p_1, \ldots, p_K}{\operatorname{minimize}}\;\; & -\sum_{k=1}^K \ln \left(1+\frac{p_k\left|h_k\right|^2}{N_0}\right) \\
+\text { subject to } & \sum_{k=1}^K p_k=P_{\max } \\
+& -p_k \leq 0, k=1, \ldots, K
+\end{aligned}
+$$
+So let $\lambda\in\mathbb{R}$ be the multiplier of the equality constrain, $\pmb \mu\in\mathbb{R}^K$ be the multiplier of the inequality constrains, so $\pmb \mu\succeq 0$, and the Lagrangian function is
+$$\mathcal{L}(\pmb p, \lambda, \pmb \mu) = -\sum_{k=1}^K \ln \left(1+\frac{p_k\left|h_k\right|^2}{N_0}\right) + \lambda\left(\sum_{k=1}^K p_k-P_{\max }\right) - \pmb \mu^T\pmb p$$
+The objective function of the dual problem is that
+$$g(\lambda, \pmb \mu) = \underset{\pmb p}{\operatorname{inf}}\ \mathcal{L}(\pmb p, \lambda, \pmb \mu)$$
+To get $g(\lambda,\pmb\mu)$, we need to get the minimum of $\mathcal{L}$ over $\pmb p$:
+\begin{align*}
+\dfrac{\partial \mathcal{L}}{\partial p_k} &= \dfrac{-\left|h_k\right|^2}{N_0+ p_k\left|h_k\right|^2} + \lambda - \mu_k, \quad k=1,\ldots,K \\
+\dfrac{\partial^2 \mathcal{L}}{\partial p_k^2} &= \dfrac{\left|h_k\right|^4}{\left(N_0+ p_k\left|h_k\right|^2\right)^2} > 0, \quad k=1,\ldots,K
+\end{align*}
+So $\mathcal{L}$ is convex in each $p_k$, and the minimum of $\mathcal{L}$ over $\pmb p$ is the point where the derivative of $\mathcal{L}$ over $p_k$ is zero. \\
+So we have
+$$\dfrac{\partial \mathcal{L}}{\partial p_k} = 0 \Rightarrow p_k^* = \dfrac{1}{\lambda-\mu_k} - \dfrac{N_0}{\left|h_k\right|^2}, \quad k=1,\ldots,K$$
+
+So
+$$g(\lambda, \pmb \mu) = \mathcal{L}(p_1^*,\ldots,p_K^*,\lambda,\pmb \mu) = -\lambda P_{\max} + \sum_{k=1}^K \left[ -\ln \left(\dfrac{\left|h_k\right|^2}{N_0(\lambda-\mu_k)}\right) + 1 - \dfrac{N_0(\lambda-\mu_k)}{\left|h_k\right|^2} \right]$$
+
+So above all, the dual problem is
+\begin{align*}
+\max_{\lambda\in\mathbb{R},\pmb \mu\in\mathbb{R}^K} &\quad -\lambda P_{\max} + \sum_{k=1}^K \left[ -\ln \left(\dfrac{\left|h_k\right|^2}{N_0(\lambda-\mu_k)}\right) + 1 - \dfrac{N_0(\lambda-\mu_k)}{\left|h_k\right|^2}\right] \\
+\text{s.t.} &\quad \pmb \mu \succeq 0
+\end{align*}
+
+3. Suppose that $f_0(\pmb p)=-\sum\limits_{k=1}^K \ln \left(1+\dfrac{p_k\left|h_k\right|^2}{N_0}\right)$, $f_i(\pmb p)=-p_i$, $i=1,\ldots,K$, $h(\pmb p)=\left(\sum\limits_{k=1}^K p_k\right)-P_{\max}$. \\
+To get the strong duality condition, we have:
+\begin{align*}
+f_0(\pmb p^*) &= g(\lambda^*,\pmb \mu^*) = \inf_{\pmb p} \mathcal{L}(\pmb p, \lambda^*, \pmb \mu^*) \\
+&= \mathcal{L}(\pmb p^*, \lambda^*, \pmb \mu^*) \\
+&= f_0(\pmb p^*) + \lambda^* h(\pmb p^*) - \pmb \mu^{*T}\pmb p^* \\
+&\leq f_0(\pmb p^*) \qquad \text{(since $h(\pmb p^*)=0$, $f_i(\pmb p^*)\leq 0$)}
+\end{align*}
+So it must have $\pmb \mu^{*T}\pmb p^* = 0$. \\
+And since we also get that $\pmb \mu\geq 0$, so we have $\mu_k^* p_k^* = 0$, $k=1,\ldots,K$. \\
+So from the analysis above, we can get the KKT conditions:
+\begin{align*}
+\text{Primal feasibility:} &\quad
+\left\{
+\begin{aligned}
+&\sum_{k=1}^K p_k^* = P_{\max} \\
+&p_k^* \geq 0, \quad k=1,\ldots,K
+\end{aligned}
+\right. \\
+\text{Dual feasibility:} &\quad \pmb \mu^* \succeq 0 \\
+\text{Complementary slackness:} &\quad \mu_k^* p_k^* = 0, \quad k=1,\ldots,K \\
+\text{Stationarity:} &\quad p_k^* = \dfrac{1}{\lambda^*-\mu_k^*} - \dfrac{N_0}{\left|h_k\right|^2}, \quad k=1,\ldots,K
+\end{align*}
+
+4. With KKT condition, we can get the optimal solution:
+
+<1> If $p_k^*=0$, then from the stationarity condition, we have $\mu_k^* = \lambda^* - \dfrac{\left|h_k\right|^2}{N_0}$. \\
+And from the dual feasibility condition, we have $\mu_k^*\geq 0$, so we have $\lambda^*\geq \dfrac{\left|h_k\right|^2}{N_0}$.
+
+<2> If $p_k^*\neq 0$, then from the complementary slackness condition, we have $\mu_k^* = 0$. \\
+And from the stationarity condition, we have $p_k^* = \dfrac{1}{\lambda^*} - \dfrac{N_0}{\left|h_k\right|^2}$. \\
+And from the primal feasibility condition, we have $p_k^* \geq 0$, and since $p_k^*\neq 0$, so we have
+$$p_k^* = \dfrac{1}{\lambda^*} - \dfrac{N_0}{\left|h_k\right|^2} > 0 \Leftrightarrow \lambda^* < \dfrac{\left|h_k\right|^2}{N_0}$$
+
+So above all, we can get that
+$$p_k^* = \left\{
+\begin{aligned}
+&0, &&\quad \lambda^* \geq \dfrac{\left|h_k\right|^2}{N_0} \\
+&\dfrac{1}{\lambda^*} - \dfrac{N_0}{\left|h_k\right|^2}, &&\quad \lambda^* < \dfrac{\left|h_k\right|^2}{N_0}
+\end{aligned}
+\right.$$
+Which means that
+$$p_k^* = \max\left\{0, \dfrac{1}{\lambda^*} - \dfrac{N_0}{\left|h_k\right|^2}\right\}$$
+And from the primal feasibility condition, we have
+$$\sum_{k=1}^K p_k^* = P_{\max}$$
+So with some methods, such as the bisection method, we can get the value of $\lambda^*$ with the above equation. And after calculating $\lambda^*$, we can get the optimal solution of $p_k^*$. \\
+And the optimal value of the origin problem is
+\begin{align*}
+\text{obj} &= \sum_{k=1}^K \ln \left(1+\frac{p_k^*\left|h_k\right|^2}{N_0}\right) \\
+&= \sum_{k=1}^K \ln \left(1+\frac{\max\left\{0, \dfrac{1}{\lambda^*} - \dfrac{N_0}{\left|h_k\right|^2}\right\}\left|h_k\right|^2}{N_0}\right)
+\end{align*}

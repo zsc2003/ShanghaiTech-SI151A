@@ -1,0 +1,33 @@
+\item[\uppercase\expandafter{\romannumeral2}.]\textbf{Second-order Cone Programming (SOCP)}
+
+Consider the following problem:
+$$
+\min_{x\in\mathbb R^n} \|\mathbf{Ax-b}\|_2+\lambda \|\mathbf{Dx}\|_1,
+$$
+where $\|\cdot\|_p$ is the $L_p$ norm. Equivalently reformulate the problem into a SOCP. \defpoints{20}
+
+\textcolor{blue}{Solution}
+
+We firstly introduce the auxiliary variable: $y=\|\pmb {Ax-b}\|_2$, to suit the format of SOCP better, it could be relax into $\|\pmb {Ax-b}\|_2\leq y$. \\
+
+And let $\pmb z = \pmb {Dx}$, $z_i=(Dx)_i$, where $z_i,(Dx)_i$ is the $i$-th element of $\pmb z$ and $\pmb {Dx}$ respectively. \\
+Suppose that $\pmb D\in \mathbb{R}^{m\times n}$, then we have $\pmb z, \pmb z^+, \pmb z^-\in\mathbb R^m$. \\
+Let $z_i^+ = \max\{0,z_i\}\geq 0$, $z_i^- = \max\{0,-z_i\}\geq 0$, $\pmb z^+ = \left(z_1^+,z_2^+,\ldots,z_n^+\right)^{\top}$, $\pmb z^- = \left(z_1^-,z_2^-,\ldots,z_n^-\right)^{\top}$. \\
+Then we have $\pmb z = \pmb z^+ + \pmb z^-$, $\pmb z^+ \succeq 0$, $\pmb z^- \succeq 0$. \\
+i.e. we have
+\begin{align*}
+\|\pmb{Dx}\|_1 &= \sum_{i=1}^m \left|z_i\right| = \sum_{i=1}^m \left(z_i^+ - z_i^-\right) = \pmb 1^{\top} \left(\pmb z^+ + \pmb z^-\right) \\
+\pmb {Dx} &= \pmb z = \pmb z^+ - \pmb z^-
+\end{align*}
+
+So above all, we can reformulate the problem into a SOCP:
+\[\begin{aligned}
+&\min_{\pmb x\in\mathbb R^n,y\in\mathbb R,\pmb z^+\in\mathbb R^m,\pmb z^-\in\mathbb R^m} && y+\lambda\pmb 1^{\top} \left(\pmb z^+ + \pmb z^-\right) \\
+&\text{subject to} && \left\|\pmb {Ax-b}\right\|_2\leq y \\
+& && 0 \leq z_i^+, \quad i=1,\ldots,m \\
+& && 0 \leq z_i^-, \quad i=1,\ldots,m \\
+& && \pmb {Dx} - \left(\pmb z^+ - \pmb z^-\right) = \pmb 0
+\end{aligned}
+\]
+
+\newpage
