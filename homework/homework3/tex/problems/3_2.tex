@@ -1,0 +1,45 @@
+\item[2.]
+Consider the low-rank matrix recovery problem
+$$
+\begin{aligned}
+\min_{\mathbf{L}}\quad &\sum_{i=1}^m\left(y_i-\mathbf{x}^{\top}_i\mathbf{L}\mathbf{x}_i\right)^2,\\
+s.t.\quad &\text{rank}(\mathbf{L})\le r,
+\end{aligned}
+$$
+where $\mathbf{L}\in\mathbb{R}^{p\times p}$ is a low-rank matrix with rank$(\mathbf{L})\le r\ll p$, $y_i\in\mathbb{R}$, and $\mathbf{x}\in \mathbb{R}^p$. Since the low-rank property is hard to address in practice, we would like to introduce some assumptions on $\mathbf{L}$. Assume that $\mathbf{L}\in\mathbb{S}^p_+$, the factorization method can be used. (Fracterization Method: in the previous problem, the low--rank matrix $\mathbf{R}$ can be factorized as $ \mathbf{R} = \mathbf{P}^{\top} \mathbf{Q},$ where $\mathbf{P} \in \mathbb{R}^{k \times m}$, $\mathbf{Q} \in \mathbb{R}^{k \times n}$, $k \ll \min(m, n)$.)
+\begin{enumerate}
+    \item[(a)] Derive the optimization problem with factorization. \defpoints{10}
+    \item[(b)] Derive the gradient of the objective function in (a). \defpoints{5} Is the objective function convex, concave, or neither? \defpoints{5}
+\end{enumerate}
+\end{itemize}
+
+\textcolor{blue}{Solution}
+
+(a) Since $\text{rank}\left(\mathbf{L}\right)\leq r$, and $\mathbf{L}\in\mathbb{S}^p_+$, we can factorize $\mathbf{L}$ as $\mathbf{L}=\mathbf{P}^{\top}\mathbf{P}$, where $\mathbf{P}\in\mathbb{R}^{r\times p}$. Since $r\ll p$, so $\text{rank}\left(\mathbf{L}\right)\leq\min\left(r,p\right)=r\Rightarrow \text{rank}\left(\mathbf{L}\right)=\text{rank}\left(\mathbf{P}^{\top}\mathbf{P}\right)=\text{rank}\left(\mathbf{P}\right)\leq r$, and $\mathbf{P}^{\top}\mathbf{P}\in\mathbb{S}^p_+$.
+
+Then the optimization problem can be rewritten as
+$$\min\limits_{\mathbf{P}\in\mathbb{R}^{r\times p}}\sum_{i=1}^m\left(y_i-\mathbf{x}_i^{\top}\mathbf{P}^{\top}\mathbf{P}\mathbf{x}_i\right)^2$$
+
+(b) <1>. Let $f\left(\mathbf{P}\right)=\sum\limits_{i=1}^m\left(y_i-\mathbf{x}_i^{\top}\mathbf{P}^{\top}\mathbf{P}\mathbf{x}_i\right)^2$. \\
+Since $\dfrac{\partial\mathbf{b}^{\top}\mathbf{X}^{\top}\mathbf{X}\mathbf{c}}{\partial\mathbf{X}}=\mathbf{X}\left(\mathbf{bc}^{\top}+\mathbf{cb}^{\top}\right) \Rightarrow \dfrac{\partial \left(\mathbf{x}_i^{\top}\mathbf{P}^{\top}\mathbf{Px}_i\right)}{\partial \mathbf{P}} = 2\mathbf{P}\mathbf{x}_i\mathbf{x}_i^{\top}$. \\
+So we can get that
+\begin{align*}
+\dfrac{\partial f}{\partial \mathbf{P}} &= 2\sum_{i=1}^m\left(\mathbf{x}_i^{\top}\mathbf{P}^{\top}\mathbf{P}\mathbf{x}_i - y_i \right) \cdot \dfrac{\partial \left(\mathbf{x}_i^{\top}\mathbf{P}^{\top}\mathbf{Px}_i\right)}{\partial \mathbf{P}} \\
+&= 4\sum_{i=1}^m\left(\mathbf{x}_i^{\top}\mathbf{P}^{\top}\mathbf{P}\mathbf{x}_i - y_i \right)\mathbf{P}\mathbf{x}_i\mathbf{x}_i^{\top}
+\end{align*}
+
+<2>. Since the gradient of the objective function is a matrix. In formal, we should take the gradient of the gradient, which is the Hessian matrix, to judge it is positive semidefinite or not to determine the convexity of the objective function. \\
+However, the gradient of a matrix is not a matrix, but a fourth-order tensor. Which is hard to express. \\
+So take $m=r=p=1$ as an example: \\
+$y,x,P$ are all scalars. \\
+Then we have:
+\begin{align*}
+f(P) &= \left(y-x^2P^2\right)^2 \\
+f'(P) &= 4\left(x^2P^2-y\right)\cdot Px^2 = 4P^3x^4 - 4Pyx^2 \\
+f''(P) &= 4x^2(3x^2P^2-y)
+\end{align*}
+Since $f''(P)$ is positive or not depends on the value of $y$, so the objective function is neither convex nor concave in this case. \\
+And we may generalize this conclusion to the general cases. i.e. the objective function is neither convex nor concave.
+
+So above all, the gradient of the objective function is $\dfrac{\partial f}{\partial \mathbf{P}} = 4\sum\limits_{i=1}^m\left(\mathbf{x}_i^{\top}\mathbf{P}^{\top}\mathbf{P}\mathbf{x}_i - y_i \right)\mathbf{P}\mathbf{x}_i\mathbf{x}_i^{\top}$. \\
+And the objective function is neither convex nor concave.

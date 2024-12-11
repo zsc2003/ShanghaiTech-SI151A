@@ -1,0 +1,42 @@
+\item[\uppercase\expandafter{\romannumeral3}.]\textbf{Low-Rank Optimization}
+\begin{itemize}
+\item[1.]
+Consider a rating matrix $\mathbf{R} \in \mathbb{R}^{m \times n}$ with $R_{ij}$ representing the rating user $i$ gives to movie $j$. But some $R_{ij}$ are unknown since no one watches all the movies. Thus, the $\mathbf{R}$ may look like blow
+\[
+\mathbf{R} =
+\begin{bmatrix}
+2 & 3 & ? & ? & 5 & ? \\
+1 & ? & 4 & ? & 3 &?\\
+? & ? & 3 & 2 & ? & 5 \\
+4 & ? & 3 & ? & 2 & 4
+\end{bmatrix}
+\]
+According to the above background, we would like to predict how users will like unwatched movies. Unfortunately, the rating matrix is very big, $480,189$ (number of users) times $17,770$ (number of movies) in the Netflix case. But there are much fewer types of people and movies than there are people and movies. So it is reasonable to assume that for each user $i$, there is a $k$-dimensional vector $\mathbf{p}_i$ explaining the user's movie taste, and for each movie $j$, there is also a $k$-dimensional vector $\mathbf{q}_j$ explaining the movie's appeal. The inner product between these two vectors, $\mathbf{p}_i^\top \mathbf{q}_j$, is the rating user $i$ gives to movie $j$, i.e.,
+    \[
+    R_{ij} = \mathbf{p}_i^\top \mathbf{q}_j.
+    \]
+    Or equivalently in matrix form, $\mathbf{R}$ is factorized as
+    \[
+    \mathbf{R} = \mathbf{P}^\top \mathbf{Q},
+    \]
+    where $\mathbf{P} \in \mathbb{R}^{k \times m}$, $\mathbf{Q} \in \mathbb{R}^{k \times n}$, $k \ll \min(m, n)$. It is the same as assuming the matrix $\mathbf{R}$ is of low rank. However, the true rank $k$ is unknown. A natural approach is to find the minimum rank solution $\mathbf{X}$.
+\begin{enumerate}
+    \item[(a)] Given the rating matrix $\mathbf{R}$ with known entries $R_{ij}$, where $(i, j)\in\Omega$ and $\Omega$ is the set of observed entries, derive the optimization problem. (Not that $\mathbf{P}$ and $\mathbf{Q}$ are also unknown, so they should not be used in the formulation.)\defpoints{10}
+    \item[(b)] In practice, instead of requiring strict equality for the observed entries, we may allow some error $\epsilon$ between the entry of solution $X_{ij}$ and the corresponding entry of the observation $R_{ij}$. Modify the problem in 1 to satisfy the above requirements.\defpoints{10}
+\end{enumerate}
+
+\textcolor{blue}{Solution}
+
+(a) The optimization problem is
+\begin{align*}
+    \min_{\mathbf{X}\in\mathbb{R}^{m\times n}} & \quad \text{rank}(\mathbf{X}) \\
+    \text{s.t.} & \quad X_{ij} = R_{ij}, \quad (i, j) \in \Omega.
+\end{align*}
+
+(b) Since we allow some error $\epsilon$ between the entry of solution $X_{ij}$ and the corresponding entry of the observation $R_{ij}$, the optimization problem is
+\begin{align*}
+    \min_{\mathbf{X}\in\mathbb{R}^{m\times n}} & \quad \text{rank}(\mathbf{X}) \\
+    \text{s.t.} & \quad |X_{ij} - R_{ij}| \leq \epsilon, \quad (i, j) \in \Omega.
+\end{align*}
+
+\newpage

@@ -1,0 +1,110 @@
+==================== Origin Problem ====================
+
+Calling SDPT3 4.0: 51 variables, 20 equality constraints
+------------------------------------------------------------
+
+ num. of constraints = 20
+ dim. of socp   var  = 20,   num. of socp blk  = 10
+ dim. of linear var  = 10
+ dim. of free   var  = 21 *** convert ublk to lblk
+*******************************************************************
+   SDPT3: Infeasible path-following algorithms
+*******************************************************************
+ version  predcorr  gam  expon  scale_data
+    NT      1      0.000   1        0
+it pstep dstep pinfeas dinfeas  gap      prim-obj      dual-obj    cputime
+-------------------------------------------------------------------
+ 0|0.000|0.000|7.2e+00|1.5e+02|9.8e+04| 1.151555e-09  0.000000e+00| 0:0:00| chol  1  1
+ 1|1.000|0.747|1.1e-06|3.7e+01|6.3e+03| 4.408195e+01  4.641006e-01| 0:0:00| chol  1  1
+ 2|1.000|0.985|2.1e-06|5.7e-01|7.6e+01| 4.055019e+01  1.831781e-02| 0:0:00| chol  1  1
+ 3|1.000|0.856|1.7e-07|8.2e-02|5.4e+00| 4.248205e+00  2.388919e-03| 0:0:00| chol  1  1
+ 4|0.900|0.539|1.4e-08|3.8e-02|6.9e-01| 4.102975e-01  4.095772e-05| 0:0:00| chol  1  1
+ 5|0.982|0.974|2.8e-10|1.0e-03|1.2e-02| 7.698398e-03  1.757785e-05| 0:0:00| chol  1  1
+ 6|0.988|0.988|4.9e-12|1.3e-05|1.4e-04| 9.331806e-05  2.780875e-06| 0:0:00| chol  1  1
+ 7|0.989|0.988|2.0e-12|2.6e-06|1.1e-05| 1.037847e-06  3.121756e-07| 0:0:00| chol  1  1
+ 8|1.000|0.989|1.3e-12|2.0e-07|7.4e-07| 3.264173e-08  3.129853e-09| 0:0:00| chol  1  1
+ 9|1.000|0.989|1.2e-12|1.4e-08|5.2e-08| 2.271110e-09  8.884006e-12| 0:0:00| chol  1  2
+10|0.596|0.944|6.2e-13|9.7e-10|4.7e-09| 1.198669e-09 -4.691367e-12| 0:0:00|
+  stop: max(relative gap, infeasibilities) < 1.49e-08
+-------------------------------------------------------------------
+ number of iterations   = 10
+ primal objective value =  1.19866920e-09
+ dual   objective value = -4.69136711e-12
+ gap := trace(XZ)       = 4.72e-09
+ relative gap           = 4.72e-09
+ actual relative gap    = 1.20e-09
+ rel. primal infeas (scaled problem)   = 6.19e-13
+ rel. dual     "        "       "      = 9.71e-10
+ rel. primal infeas (unscaled problem) = 0.00e+00
+ rel. dual     "        "       "      = 0.00e+00
+ norm(X), norm(y), norm(Z) = 2.5e+00, 3.2e-01, 4.5e-01
+ norm(A), norm(b), norm(C) = 2.2e+01, 1.1e+01, 2.4e+00
+ Total CPU time (secs)  = 0.11
+ CPU time per iteration = 0.01
+ termination code       =  0
+ DIMACS: 1.1e-12  0.0e+00  1.2e-09  0.0e+00  1.2e-09  4.7e-09
+-------------------------------------------------------------------
+
+------------------------------------------------------------
+Status: Solved
+Optimal value (cvx_optval): +1.19867e-09
+
+CVX Status:
+Solved
+Optimal value:
+   1.1987e-09
+
+==================== Reform Problem ====================
+
+Calling SDPT3 4.0: 21 variables, 21 equality constraints
+   For improved efficiency, SDPT3 is solving the dual problem.
+------------------------------------------------------------
+
+ num. of constraints = 21
+ dim. of linear var  = 22
+ number of nearly dependent constraints = 10
+ To remove these constraints, re-run sqlp.m with OPTIONS.rmdepconstr = 1.
+*******************************************************************
+   SDPT3: Infeasible path-following algorithms
+*******************************************************************
+ version  predcorr  gam  expon  scale_data
+    NT      1      0.000   1        0
+it pstep dstep pinfeas dinfeas  gap      prim-obj      dual-obj    cputime
+-------------------------------------------------------------------
+ 0|0.000|0.000|1.0e+02|4.8e+00|3.2e+03|-7.809891e-09  0.000000e+00| 0:0:00| chol  1  1
+ 1|0.994|0.996|6.0e-01|4.9e-02|3.3e+01|-2.470275e-05 -1.438311e+01| 0:0:00| chol  1  1
+ 2|1.000|1.000|8.6e-08|3.2e-03|4.6e+00| 2.686130e-09 -4.512945e+00| 0:0:00| chol  1  1
+ 3|1.000|0.989|1.9e-08|3.5e-04|5.7e-02| 6.729059e-10 -4.820207e-02| 0:0:00| chol  1  1
+ 4|1.000|0.989|6.2e-09|3.5e-05|1.2e-03| 2.201996e-10 -4.307715e-04| 0:0:00| chol  1  1
+ 5|1.000|0.989|1.7e-09|3.5e-06|6.0e-05| 6.093492e-11  5.114873e-06| 0:0:00| chol  1  1
+ 6|1.000|0.989|2.7e-10|3.9e-08|6.6e-07|-2.949282e-11  5.609093e-08| 0:0:00| chol  1  1
+ 7|1.000|0.989|1.8e-11|4.9e-10|1.5e-08|-6.288997e-13 -6.252401e-09| 0:0:00| chol  2  2
+ 8|1.000|0.989|3.3e-13|7.1e-12|3.6e-10| 3.948231e-14 -2.258790e-10| 0:0:00|
+  stop: max(relative gap, infeasibilities) < 1.49e-08
+-------------------------------------------------------------------
+ number of iterations   =  8
+ primal objective value =  3.94823063e-14
+ dual   objective value = -2.25878967e-10
+ gap := trace(XZ)       = 3.56e-10
+ relative gap           = 3.56e-10
+ actual relative gap    = 2.26e-10
+ rel. primal infeas (scaled problem)   = 3.27e-13
+ rel. dual     "        "       "      = 7.10e-12
+ rel. primal infeas (unscaled problem) = 0.00e+00
+ rel. dual     "        "       "      = 0.00e+00
+ norm(X), norm(y), norm(Z) = 4.9e+00, 2.7e+00, 1.1e-09
+ norm(A), norm(b), norm(C) = 2.1e+01, 2.0e+00, 1.5e+01
+ Total CPU time (secs)  = 0.09
+ CPU time per iteration = 0.01
+ termination code       =  0
+ DIMACS: 3.3e-13  0.0e+00  1.7e-11  0.0e+00  2.3e-10  3.6e-10
+-------------------------------------------------------------------
+
+------------------------------------------------------------
+Status: Solved
+Optimal value (cvx_optval): +2.25879e-10
+
+CVX Status:
+Solved
+Optimal value:
+   2.2588e-10

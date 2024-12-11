@@ -1,0 +1,40 @@
+\item[\uppercase\expandafter{\romannumeral1}.] \textbf{CVX Programming}
+\begin{itemize}
+\item[1.]
+Consider the following Tschebyshev approximation problem:
+$$
+\min_{\mathbf{x}\in\mathbb{R}^p} \|\mathbf{Ax}-\mathbf{b}\|_\infty,
+$$
+where $\mathbf{A}\in\mathbb{R}^{n\times p}$ and $\mathbf{b}\in\mathbb{R}^n$, and $\|\mathbf{u}\|_\infty:=\max\{|\mathbf{u}_i|\mid 1\le i\le p\}$.
+\begin{enumerate}
+    \item[(a)] Reformulate it in LP. \defpoints{10}
+    \item[(b)] Use CVX to solve the original problem and the LP form and report your results respectively. The initialisation part is given below.\defpoints{10}
+\end{enumerate}
+\begin{lstlisting}[language=Matlab]
+n = 10; p = 20;
+A = randn(n, p);
+x_org = randn(p, 1);
+b = A * x_org + (1e-2) *randn(n, 1);
+\end{lstlisting}
+
+\textcolor{blue}{Solution}
+
+(a) Let $t=\|\mathbf{Ax}-\mathbf{b}\|_{\infty}\geq 0$, then we have $-t\mathbf{1}\leq \mathbf{Ax}-\mathbf{b}\leq t\mathbf{1}$. \\
+So the origin problem can be reformulated as:
+\begin{align*}
+\min_{t\in\mathbb{R},\mathbf{x}\in\mathbb{R}^p} &\qquad t \\
+\text{s.t.} &\qquad -t\mathbf{1}\leq \mathbf{Ax}-\mathbf{b}\leq t\mathbf{1} \\
+&\qquad t\geq 0
+\end{align*}
+Which is a LP problem.
+
+(b) (1) The code to solve for the original problem and the reformulated LP problem is as follows:
+\lstinputlisting[language=Matlab]{../../code/p1.m}
+
+(2) And the results ran by the code with CVX with \textbf{SDPT3} solver are as follows:
+\lstinputlisting[language={}]{../../code/p1_output.txt}
+And we can find that the origin problem and the reformulated problem solved by CVX have the similar results(The origin problem solved with optimal value: $1.1987 e-09$, and the reformulated problem solved with optimal value: $2.25879e-10$), which has \textcolor{blue}{no significant difference}.
+
+And their running speed has \textcolor{blue}{no significant difference}(The origin problem solved with CPU time: $0.11$ in $10$ iterations, and the reformulated problem solved with CPU time: $0.09s$ in $8$ iterations).
+
+\newpage

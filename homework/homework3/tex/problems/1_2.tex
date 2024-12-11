@@ -1,0 +1,49 @@
+\item[2.]
+Consider the SOCP problem in HW2:
+$$
+\min_{x\in\mathbb R^p} \|\mathbf{Ax-b}\|_2+\lambda \|\mathbf{Dx}\|_1,
+$$
+where $\mathbf{A}\in\mathbb{R}^{n\times p}$, $\mathbf{D}\in\mathbb{R}^{n\times p}$, and $\mathbf{b}\in\mathbb{R}^n$
+\begin{enumerate}
+    \item[(a)] Use CVX to solve the original problem and SOCP form and report your results respectively. The initialisation part is given below.\defpoints{10}
+    \item[(b)] Compare the results, and answer 1), how many iterations do both problems cost respectively? 2), What if we change the solver?\defpoints{10}
+\end{enumerate}
+\begin{lstlisting}[language=Matlab]
+n = 10; p = 20;
+A = randn(n, p);
+x_org = randn(p, 1);
+b = A*x_org+1e-2*randn(n, 1);
+D = randn(n, p);
+\end{lstlisting}
+\end{itemize}
+
+\textcolor{blue}{Solution}
+
+(a) From homework 2, we know this problem could be reformulated as a SOCP:
+\begin{align*}
+\min_{\mathbf{x}\in\mathbb{R}^p,t\in\mathbb{R},\mathbf{s}\in\mathbb{R}^p} &\qquad t + \lambda \sum_{i=1}^ps_i \\
+\text{s.t.} &\qquad \|\mathbf{Ax-b}\|_2\leq t \\
+&\qquad t\geq 0 \\
+&\qquad -s_i\leq \left(\mathbf{Dx}\right)_i\leq s_i, \quad i=1,2,\cdots,p \\
+&\qquad s_i\geq 0, \quad i=1,2,\cdots,p
+\end{align*}
+
+And I chose $\lambda=0.1$ as the hyperparameter. \\
+The code to solve for the original problem and the reformulated LP problem is as follows:
+\lstinputlisting[language=Matlab]{../../code/p2.m}
+
+(b) (1) And the results ran by the code with CVX using the \textbf{SDPT3} solver are as follows:
+\lstinputlisting[language={}]{../../code/p2_output_SDPT3.txt}
+This result is using the \textbf{SDPT3} solver. \\
+And we can find that the origin problem and the reformulated problem solved by CVX have the similar results(The origin problem solved with optimal value: $5.3194e-09$, and the reformulated problem solved with optimal value: $7.7612e-09$), which has \textcolor{blue}{no significant difference}.
+
+And for their running speed: The origin problem solved with CPU time: $0.08s$ in $17$ iterations, and the reformulated problem solved with CPU time: $0.11s$ in $7$ iterations. The reformulated problem has \textcolor{blue}{less iterations} but \textcolor{blue}{more CPU time}.
+
+(2) Then we change the solver to \textbf{SeDuMi}, and the results are as follows:
+\lstinputlisting[language={}]{../../code/p2_output_SeDuMi.txt}
+This result is using the \textbf{SeDuMi} solver. \\
+And we can find that the origin problem and the reformulated problem solved by CVX have the similar results(The origin problem solved with optimal value: $3.4358 -011$, and the reformulated problem solved with optimal value: $4.6586 -02$), which has \textcolor{blue}{no significant difference}.
+
+And for their running speed: The origin problem solved with CPU time: $0.57629s$ in $9$ iterations, and the reformulated problem solved with CPU time: $0.086824s$ in $5$ iterations. The reformulated problem has \textcolor{blue}{less iterations} and much \textcolor{blue}{less CPU time}.
+
+\newpage

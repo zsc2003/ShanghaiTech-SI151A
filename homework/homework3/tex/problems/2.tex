@@ -1,0 +1,100 @@
+\item[\uppercase\expandafter{\romannumeral2}.]\textbf{Sparse Optimization}
+
+Consider a \textit{linear system of equations} $\mathbf{x} = \mathbf{D}\boldsymbol{\alpha}$, where $\mathbf{D}$ is an \textit{underdetermined} $m \times p$ matrix ($m < p$) and $\mathbf{x} \in \mathbb{R}^m$, $\boldsymbol{\alpha} \in \mathbb{R}^p$. The matrix $\mathbf{D}$ (typically assumed to be full-rank) is referred to as the \textit{dictionary}, and $\mathbf{x}$ is a signal of interest. The core sparse representation problem is defined as the quest for the sparsest possible representation $\boldsymbol{\alpha}$ satisfying $\mathbf{x} = \mathbf{D}\boldsymbol{\alpha}$. Due to the underdetermined nature of $\mathbf{D}$, this linear system admits in general infinitely many possible solutions, and among these, we seek the one with the fewest non-zeros. This is the most popular problem in \emph{compress sensing}.
+\begin{itemize}
+\item[1.]
+Given $\mathbf{x}$ and $\mathbf{D}$, we want to find the $\boldsymbol{\alpha}$ with the fewest non-zeros. Derive the problem. \defpoints{5} Relax the problem so that the \textbf{objective function} is convex. \defpoints{5} (\emph{hint}: You can use the $L_0$ norm to form the problem and use some other norm to approximate the $L_0$ norm.)
+
+\item[2.] Derive the \textbf{Lagrangian} $L(\mathbf{x}, \mathbf{\lambda}, \mathbf{v})$ of the relaxed problem. \defpoints{5} Consider the problem $\min\limits_{\mathbf{x}} L(\mathbf{x}, \mathbf{\lambda}, \mathbf{v})$, reformulate it in the ADMM form. \defpoints{5}
+\end{itemize}
+
+\textcolor{blue}{Solution}
+
+(1) <1>. To have fewest non-zeros, which means that we want to minimize $\text{card}(\balpha)$, where for a scalar $a$, $\text{card}(a) = \begin{cases}
+1, & \text{if } a \neq 0, \\
+0, & \text{if } a = 0.
+\end{cases}$ \\
+Thus, the problem can be formulated as
+\begin{align*}
+\min_{\balpha\in\mathbb{R}^p} & \quad \text{card}(\balpha) \\
+\text{s.t.} & \quad \mathbf{x} = \mathbf{D}\balpha.
+\end{align*}
+
+<2>. Since $\text{card}(\balpha)$ or we can also say $L_0$-norm is non-convex, we can relax the problem by using $L_1$-norm. The problem can be formulated as
+\begin{align*}
+\min_{\balpha\in\mathbb{R}^p} & \quad \|\balpha\|_1 \\
+\text{s.t.} & \quad \mathbf{x} = \mathbf{D}\balpha.
+\end{align*}
+Now the objective function is convex, since $L_1$-norm is convex.
+
+(2) The Lagrangian of the relaxed problem is
+$$L(\balpha, \blambda) = \|\balpha\|_1 + \blambda^{\top}(\mathbf{x} - \mathbf{D}\balpha)$$
+To find the $\min\limits_{\balpha\in\mathbb{R}^p}L(\balpha, \blambda)$, we can get the optimization problem as:
+$$\min_{\balpha\in\mathbb{R}^p} \|\balpha\|_1 + \blambda^{\top}(\mathbf{x} - \mathbf{D}\balpha) = \|\balpha\|_1 - (\mathbf{D}^{\top}\blambda)^{\top}\balpha + \blambda^{\top}\mathbf{x}$$
+And since $\blambda$, $\mathbf{D}$ and $\mathbf{x}$ could be considered as constants, so we can let $\mathbf{c} = -\mathbf{D}^{\top}\blambda$, and ignore $\blambda^{\top}\mathbf{x}$. Then the problem can be formulated as:
+$$\min_{\balpha\in\mathbb{R}^p} = \|\balpha\|_1 + \mathbf{c}^{\top}\balpha$$
+To formulate the problem in the ADMM form, we reformulate the problem as
+\begin{align*}
+\min_{\balpha,\mathbf{z}\in\mathbb{R}^p} & \quad \mathbf{c}^{\top}\balpha + \|\mathbf{z}\|_1 \\
+\text{s.t.} & \quad \balpha = \mathbf{z}
+\end{align*}
+Which means that through ADMM, we can get the update rules as
+$$\left\{
+\begin{aligned}
+\balpha^{k+1} & = \argmin_{\balpha} \left(\mathbf{c}^{\top}\balpha + \dfrac{\rho}{2}\|\balpha - \mathbf{z}^k + \mathbf{u}^k\|_2^2\right) \\
+\mathbf{z}^{k+1} & = \argmin_{\mathbf{z}} \left(\|\mathbf{z}\|_1 + \dfrac{\rho}{2}\|\balpha^{k+1} - \mathbf{z} + \mathbf{u}^k\|_2^2\right) \\
+\mathbf{u}^{k+1} & = \mathbf{u}^k + \balpha^{k+1} - \mathbf{z}^{k+1}
+\end{aligned}
+\right.$$
+
+1. For $\balpha$: Let $\phi(\balpha) = \mathbf{c}^{\top}\balpha + \dfrac{\rho}{2}\|\balpha - \mathbf{z}^k + \mathbf{u}^k\|_2^2$, then
+\begin{align*}
+\dfrac{\partial \phi}{\partial \balpha} & = \mathbf{c} + \rho(\balpha - \mathbf{z}^k + \mathbf{u}^k)\\
+\dfrac{\partial^2 \phi}{\partial \balpha^2} & = \rho \mathbf{I} \succ 0
+\end{align*}
+So $\phi(\balpha)$ is a convex function, so we just need to let $\dfrac{\partial \phi}{\partial \balpha} = 0\Rightarrow \balpha^{k+1} = \mathbf{z}^k - \mathbf{u}^k - \dfrac{1}{\rho}\mathbf{c}$.
+
+2. For $\mathbf{z}$: $\mathbf{z}^{k+1} = \argmin\limits_{\mathbf{z}} \left(\|\mathbf{z}\|_1 + \dfrac{\rho}{2}\|\balpha^{k+1} - \mathbf{z} + \mathbf{u}^k\|_2^2\right) = \argmin\limits_{\mathbf{z}} \left(\sum\limits_{i=1}^p|z_i| + \dfrac{\rho}{2}\sum\limits_{i=1}^p(\alpha_i^{k+1} - z_i + u_i^k)^2\right)$. We can see that this is seperable. So let $\psi(z_i) = |z_i| + \dfrac{\rho}{2}\|\balpha^{k+1} - z_i + \mathbf{u}^k\|_2^2$, since $\psi(z_i)$ is not differentiable, so to find the minimize, we use the subgradient: $0\in \partial\psi(z_i^*)$. \\
+Where $\partial\psi(z_i)=\partial(|z_i|)+\rho\left(\alpha_i^{k+1} - z_i + u_i^k\right)$. \\
+<1>. If $z_i^*>0$, then
+\begin{align*}
+&\Rightarrow |z_i^*|=z_i \Rightarrow \partial(|z_i^*|)=1 \\
+&\Rightarrow 0 = 1 + \rho\left(\balpha^{k+1} - z_i^* + u_i^k\right) \\
+&\Rightarrow z_i^* = \alpha_i^{k+1} + u_i^k - \dfrac{1}{\rho} > 0 \\
+&\Rightarrow \alpha_i^{k+1} + u_i^k > \dfrac{1}{\rho}
+\end{align*}
+
+<2>. If $z_i^*<0$, then
+\begin{align*}
+&\Rightarrow |z_i^*|=-z_i \Rightarrow \partial(|z_i^*|)=-1 \\
+&\Rightarrow 0 = -1 + \rho\left(\balpha^{k+1} - z_i^* + u_i^k\right) \\
+&\Rightarrow z_i^* = \alpha_i^{k+1} + u_i^k + \dfrac{1}{\rho} < 0 \\
+&\Rightarrow \alpha_i^{k+1} + u_i^k < -\dfrac{1}{\rho}
+\end{align*}
+
+<3>. If $z_i^*=0$, then
+\begin{align*}
+&\Rightarrow |z_i^*|=0 \Rightarrow \partial(|z_i^*|) \in [-1,1] \\
+&\Rightarrow 0 \in [-1,1] + \rho\left(\balpha^{k+1} - z_i^* + u_i^k\right) \\
+&\Rightarrow -1 \leq \rho\left(\balpha^{k+1} - z_i^* + u_i^k\right) \leq 1 \\
+&\Rightarrow -\dfrac{1}{\rho} \leq \alpha_i^{k+1} + u_i^k \leq \dfrac{1}{\rho}
+\end{align*}
+
+Thus, we can get the update rule for $\mathbf{z}$ as
+$$z_i^{k+1} = \begin{cases}
+\alpha_i^{k+1} + u_i^k - \frac{1}{\rho}, & \text{if } \alpha_i^{k+1} + u_i^k > \dfrac{1}{\rho}, \\
+\alpha_i^{k+1} + u_i^k + \frac{1}{\rho}, & \text{if } \alpha_i^{k+1} + u_i^k < -\dfrac{1}{\rho}, \\
+0, & \text{otherwise}
+\end{cases}$$
+i.e. $z_i^{k+1} = S_{\frac{1}{\rho}}(\alpha_i^{k+1} + u_i^k) \Rightarrow z^{k+1} = S_{\frac{1}{\rho}}(\balpha^{k+1} + \mathbf{u}^k)$, where $S_{\frac{1}{\rho}}(\cdot)$ is the soft-thresholding operator.
+
+So above all, the update rules for ADMM are
+$$\left\{
+\begin{aligned}
+\balpha^{k+1} & = \mathbf{z}^k - \mathbf{u}^k - \dfrac{1}{\rho}\mathbf{c} \\
+\mathbf{z}^{k+1} & = S_{\frac{1}{\rho}}(\balpha^{k+1} + \mathbf{u}^k) \\
+\mathbf{u}^{k+1} & = \mathbf{u}^k + \balpha^{k+1} - \mathbf{z}^{k+1}
+\end{aligned}
+\right.$$
+
+\newpage
