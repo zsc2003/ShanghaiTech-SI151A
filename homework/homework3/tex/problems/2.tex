@@ -13,7 +13,7 @@ Given $\mathbf{x}$ and $\mathbf{D}$, we want to find the $\boldsymbol{\alpha}$ w
 (1) <1>. To have fewest non-zeros, which means that we want to minimize $\text{card}(\balpha)$, where for a scalar $a$, $\text{card}(a) = \begin{cases}
 1, & \text{if } a \neq 0, \\
 0, & \text{if } a = 0.
-\end{cases}$ \\
+\end{cases}$. \textcolor{red}{Then $\text{card}(\balpha) = \sum\limits_{i=1}^p\text{card}(\alpha_i)$.} \\
 Thus, the problem can be formulated as
 \begin{align*}
 \min_{\balpha\in\mathbb{R}^p} & \quad \text{card}(\balpha) \\
@@ -31,7 +31,7 @@ Now the objective function is convex, since $L_1$-norm is convex.
 $$L(\balpha, \blambda) = \|\balpha\|_1 + \blambda^{\top}(\mathbf{x} - \mathbf{D}\balpha)$$
 To find the $\min\limits_{\balpha\in\mathbb{R}^p}L(\balpha, \blambda)$, we can get the optimization problem as:
 $$\min_{\balpha\in\mathbb{R}^p} \|\balpha\|_1 + \blambda^{\top}(\mathbf{x} - \mathbf{D}\balpha) = \|\balpha\|_1 - (\mathbf{D}^{\top}\blambda)^{\top}\balpha + \blambda^{\top}\mathbf{x}$$
-And since $\blambda$, $\mathbf{D}$ and $\mathbf{x}$ could be considered as constants, so we can let $\mathbf{c} = -\mathbf{D}^{\top}\blambda$, and ignore $\blambda^{\top}\mathbf{x}$. Then the problem can be formulated as:
+And since $\blambda$ \textcolor{red}{is the multiplier}, $\mathbf{D}$ and $\mathbf{x}$ could be considered as constants, so we can let $\mathbf{c} = -\mathbf{D}^{\top}\blambda$, and ignore $\blambda^{\top}\mathbf{x}$. Then the problem can be formulated as:
 $$\min_{\balpha\in\mathbb{R}^p} = \|\balpha\|_1 + \mathbf{c}^{\top}\balpha$$
 To formulate the problem in the ADMM form, we reformulate the problem as
 \begin{align*}
