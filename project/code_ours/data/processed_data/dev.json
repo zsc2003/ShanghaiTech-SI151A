@@ -1,0 +1,1190 @@
+[
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A coconut seller has to transport coconuts using either rickshaws or ox carts. The rickshaws can take 50 coconuts each and cost $10 per trip. The ox carts can take 30 coconuts each and cost $8 per trip. The seller has at most $200 to spend on transporting the coconuts. Due to pollution, the number of rickshaws must not exceed the number of ox carts. Formulate a LP to maximize the number of coconuts that can be transported."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent rickshaws, x_1 to represent ox carts. Then the optimization problem is:\nmaximize:\n50.0x_0 + 30.0x_1\nsubject to:\n10.0x_0 + 8.0x_1 <= 200.0\n1.0x_0 - 1.0x_1 <= 1.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A furniture store only stocks and sells dining tables and chairs. The profit per dining table is $350 and the profit per chair is $75. There is 500 sq ft of space available and a dining table requires 8 sq ft of floor space while a chair requires 2 sq ft. Because chairs sell in larger quantities, at least 70% of all furniture in the store must be chairs. In terms of capital, a dining table ties up $1000 in capital and a chair ties up $150 in capital. The company wants a maximum of $20000 worth of capital tied up at any time. Formulate an LP to maximize profit."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent dining tables, x_1 to represent chairs. Then the optimization problem is:\nmaximize:\n350.0x_0 + 75.0x_1\nsubject to:\n8.0x_0 + 2.0x_1 <= 500.0\n0.7x_0 - 0.3x_1 <= 0.0\n1000.0x_0 + 150.0x_1 <= 20000.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A bakery sells two types of cakes. They sell a chocolate cake and a vanilla cake. Let's say they make x1 chocolate cakes, at a profit of $10 each, and x2 vanilla cakes, at a profit of $11 each (x1 and x2 are unknowns both greater than or equal to 0). The daily demand for these cakes is at most 50 chocolate cakes and at most 30 vanilla cakes. The bakery is short staffed and can make a maximum of 50 cakes of either type per day. How much of each cake should the bakery make in order to maximize profit?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent chocolate cake, x_1 to represent vanilla cake. Then the optimization problem is:\nmaximize:\n10.0x_0 + 11.0x_1\nsubject to:\n1.0x_0 + 0.0x_1 <= 50.0\n0.0x_0 + 1.0x_1 <= 30.0\n1.0x_0 + 1.0x_1 <= 50.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A company wants to advertise its product. They want to use three types of ads: magazine ads, flyers, and billboard ads. The cost for each option along with the expected viewership is given. A magazine ad costs $1000 and attracts 10000 viewers. A flyer costs $200 and attracts 5000 viewers. A billboard ad costs $7000 and attracts 25000 viewers. To avoid annoying customers, the city has limited the number of flyers from a single company to 8. In addition, at most a third of the total number of ads should be billboard ads and at least 15% of the ads should be magazine ads. If the weekly budget is $50000, how many ads of each type should be run in order to maximize the number of viewers?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent magazine ads, x_1 to represent flyers, x_2 to represent billboard ads. Then the optimization problem is:\nmaximize:\n10000.0x_0 + 5000.0x_1 + 25000.0x_2\nsubject to:\n1000.0x_0 + 200.0x_1 + 7000.0x_2 <= 50000.0\n0.0x_0 + 1.0x_1 + 0.0x_2 <= 8.0\n-0.33x_0 - 0.33x_1 + 0.67x_2 <= 0.0\n-0.85x_0 + 0.15x_1 + 0.15x_2 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A spicy paste is to be made from units of peppers and tomatoes and is to contain a minimum of 130 units of spice and 90 units of flavor. Peppers cost $8 per unit and tomatoes cost $5 per unit. One unit of peppers contains 12 units of spice and 2 units of flavor. One unit of tomatoes contains 1 unit of spice and 8 units of flavor. Formulate this as an LP and find the minimum cost spicy paste that can be made."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent peppers, x_1 to represent tomatoes. Then the optimization problem is:\nminimum:\n8.0x_0 + 5.0x_1\nsubject to:\n-12.0x_0 - 1.0x_1 <= -130.0\n-2.0x_0 - 8.0x_1 <= -90.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A suit store makes 2-piece and 3-piece suits. To make a 2-piece suit requires 1 hour of measuring and 4 hours of stitching. To make a 3-piece suit requires 2 hours of measuring and 5 hours of stitching. The store has 150 hours of measuring time and 300 hours of stitching time available. In order to stay in business, at least 40 2-piece suites should be made. The profit per 2-piece suit is $600 and the profit per 3-piece suit is $800. Formulate a LP to maximize profit?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent 2-piece, x_1 to represent 3-piece suits. Then the optimization problem is:\nmaximize:\n600.0x_0 + 800.0x_1\nsubject to:\n1.0x_0 + 2.0x_1 <= 150.0\n4.0x_0 + 5.0x_1 <= 300.0\n-1.0x_0 + 0.0x_1 <= -40.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "The Chips Alloy company produces 150 tons of iron ore and 35 tons of zinc ore each month. These can be treated in different ways to produce three different alloy grades: Standard, Plus or Premium. To produce 1 ton of the Standard grade alloy requires 3 tons of iron ore and 1 ton of zinc ore. To produce 1 ton of the Plus grade alloy requires 5 tons of iron ore and 2 tons of zinc ore. Finally, to produce 1 ton of the Premium grade alloy requires 6 tons of iron ore and 3 tons of zinc ore. The profit per ton from selling the alloys are $1500, $2500 and $5500 for the Standard, Plus, and Premium grades respectively. How much of each alloy grade should be produced to maximize profit?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent Standard, x_1 to represent Plus, x_2 to represent Premium. Then the optimization problem is:\nmaximize:\n1500.0x_0 + 2500.0x_1 + 5500.0x_2\nsubject to:\n3.0x_0 + 5.0x_1 + 6.0x_2 <= 150.0\n1.0x_0 + 2.0x_1 + 3.0x_2 <= 35.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A clothing factory makes t-shirts and hoodies with images of super heroes on them using a printing machine. Due to the popularity of super heroes, the company must make at least 1000 t-shirts or hoodies, in any combination, per week. Also, in one week, the printing machine must be kept running for at least 60 hours. A t-shirt takes 0.2 hours of printing time and costs $10. A hoodie take 0.3 hours of printing time and costs $20. Formulate this problem so as to minimize total production costs."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent t-shirts, x_1 to represent hoodies. Then the optimization problem is:\nminimize:\n10.0x_0 + 20.0x_1\nsubject to:\n-1.0x_0 + 0.0x_1 <= -1000.0\n0.0x_0 - 1.0x_1 <= -1000.0\n-0.2x_0 - 0.3x_1 <= -60.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A kitchen prepares diced onions and carrots each involving both peeling and cutting. To prepare a container of diced onions takes 10 minutes of peeling and 20 minutes of cutting. To prepare a container of diced carrots takes 20 minutes of peeling and 15 minutes of cutting. There are 2000 minutes of peeling time and 2500 minutes of cutting time available. If the profit per container of diced onions is $8 and the profit per container of diced carrots is $6, how many containers of each should be prepared to maximize profit?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent diced onions, x_1 to represent carrots. Then the optimization problem is:\nmaximize:\n8.0x_0 + 6.0x_1\nsubject to:\n10.0x_0 + 20.0x_1 <= 2000.0\n20.0x_0 + 15.0x_1 <= 2500.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A cell-phone company makes foldable and regular cell-phones in a factory that is divided into a hardware and software section. The hardware section must work 10 hours on each foldable cell-phone but only 3 hours on each regular one. The software section must work 3 hours for each cell-phone. The profit from the foldable cell-phone is $500 and the profit from the regular cell-phone is $300. Due to a recent strike, the hardware section only has 200 hours available per week and the software section only has 150 hours available per week. How many of each phone should the company produce to maximize profit?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent foldable, x_1 to represent regular. Then the optimization problem is:\nmaximize:\n500.0x_0 + 300.0x_1\nsubject to:\n10.0x_0 + 3.0x_1 <= 200.0\n3.0x_0 + 3.0x_1 <= 150.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "The Vision Corporation manufactures two models of monitors: Aleph 3 and Gilgamesh Supreme. They share a similar manufacturing process in that they both require a certain amount of assembly and packaging. Each Aleph 3 monitor takes 2 hours of assembly and each Gilgamesh Supreme requires 2.5 hours of assembly. They both require 0.5 hours of packaging time per unit. During the next season, 5000 hours of assembly time are available and at most 2500 hours of packaging time may be used. Each Aleph 3 sold yields a profit of $1500. Each Gilgamesh Supreme sold yields a profit of $2500 profit. Formulate and solve this LP problem and find the best combination of monitors that yields the highest profit."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent Aleph 3, x_1 to represent Gilgamesh Supreme. Then the optimization problem is:\nhighest:\n1500.0x_0 + 2500.0x_1\nsubject to:\n2.0x_0 + 2.5x_1 <= 5000.0\n0.5x_0 + 0.5x_1 <= 2500.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A factory in India produces rice and corn. To make one kilogram of rice requires 2 hours of human labor, 3 hours of machine work, and 4 hours of resting under the sun. To make one kilogram of corn requires 1 hour of human labor, 5 hours of machine work, and 1 hour of resting under the sun. The factory only has 100 hours of human labor, 200 hours of machine labor, and 75 hours of time under the sun available. The net profit per kilogram of rice is $20 and the net profit per kilogram of corn is $25. How many kilograms of each should the factory make in order to maximize profit?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent rice, x_1 to represent corn. Then the optimization problem is:\nmaximize:\n20.0x_0 + 25.0x_1\nsubject to:\n2.0x_0 + 1.0x_1 <= 100.0\n3.0x_0 + 5.0x_1 <= 200.0\n4.0x_0 + 1.0x_1 <= 75.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "David likes to mix his two post workout drinks: coconut water and blue energade. Coconut water costs $3 per bottle, contains 5 units of potassium, 3 units of magnesium, and 8 units of calcium. Blue energade costs $5 per bottle and contains 10 units of potassium, 4 units of magnesium, and 4 units of calcium. David likes to make sure he gets at least 15 units of potassium, 10 units of magnesium, and 20 units of calcium after each workout. How many bottles of each drink should he buy and mix in order to ensure a minimum cost? What is the minimum cost?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent coconut water, x_1 to represent blue energade. Then the optimization problem is:\nminimum:\n3.0x_0 + 5.0x_1\nsubject to:\n-5.0x_0 - 10.0x_1 <= -15.0\n-3.0x_0 - 4.0x_1 <= -10.0\n-8.0x_0 - 4.0x_1 <= -20.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "George has 120 acres of farmland on which to grow strawberries and watermelons Both fruits have to be watered and sprayed with bug repellant. There are 150 days per year available for watering and 100 days per year available for spraying bug spray. It takes 0.5 days to water an acre of strawberries and 1 day to spray an acre of strawberries. It takes 0.2 days to water an acre of watermelons and 2 days to spray an acre of watermelons. George earns a profit of $200 per acre of strawberries and $500 per acre of watermelons. How many acres of each fruit should be planted in order to maximize profit?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent strawberries, x_1 to represent watermelons. Then the optimization problem is:\nmaximize:\n200.0x_0 + 500.0x_1\nsubject to:\n1.0x_0 + 1.0x_1 <= 120.0\n0.5x_0 + 0.2x_1 <= 150.0\n1.0x_0 + 2.0x_1 <= 100.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A fashion company produces two types of nail paints, gel and acrylic. The profit per unit of gel is $80 and the profit per unit of acrylic is $200. It takes 4 hours to produce the raw materials for one unit of gel, 3 hour to mix and 6 hours in packing. It takes 2 hours to produce the raw materials for one unit of acrylic, 5 hour to mix and 2.3 hours in packing. Per month, 290 hours are available for preparing the raw materials, 480 hours for mixing and 510 hours for packing the nail paints.  How many of each type of nail paint should be produced in order to maximize the total monthly profit?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent gel, x_1 to represent acrylic. Then the optimization problem is:\nmaximize:\n80.0x_0 + 200.0x_1\nsubject to:\n4.0x_0 + 2.0x_1 <= 290.0\n3.0x_0 + 5.0x_1 <= 480.0\n6.0x_0 + 2.3x_1 <= 510.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "Bold Tycoon wants to put his $10,000 to work and decides to invest his money in GICs and index ETF. GICs  yields a 2% return whereas index ETF yields an average return of 7.5%. To meet his long-term investment goal, he needs to place at least $4,000 in index ETF.  Nonetheless, he is risk averse and wants at least 30% of his money to be safely invested in GICs.  Help Bold Tycoon determine an asset allocation that will maximize his average return."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent GICs, x_1 to represent index ETF. Then the optimization problem is:\nmaximize:\n0.02x_0 + 0.08x_1\nsubject to:\n0.0x_0 - 1.0x_1 <= -4000.0\n-0.7x_0 + 0.3x_1 <= 0.0\n1.0x_0 + 1.0x_1 <= 10000.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A paint manufacturer produces 300 kg of dye and 200 kg of filler each week. By using different combinations, they can produce three different paint products for sale: Low Quality, Regular Quality, and Premium Quality. The profit per kg for selling the paint is $100, $200, $230 for the low quality, regular quality, and premium quality respectively. To produce 1 kg of low quality paint requires 6 kg of dye and 20 kg of filler. To produce 1 kg of regular quality paint requires 10 kg of dye and 10 kg of filler. To produce 1 kg of premium quality paint require 15 kg of dye and 2 kg of dye. Formulate the problem of deciding how much of each paint to make each week as a LP problem in order to maximize profit."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent Low Quality, x_1 to represent Regular Quality, x_2 to represent Premium Quality. Then the optimization problem is:\nmaximize:\n100.0x_0 + 200.0x_1 + 230.0x_2\nsubject to:\n6.0x_0 + 10.0x_1 + 15.0x_2 <= 300.0\n20.0x_0 + 10.0x_1 + 2.0x_2 <= 200.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "Two brothers, John and William, run a stand selling lemonade and brownies. A pitcher of lemonade takes 0.5 hours of John's time along with 0.2 hours of William's time. A batch of brownies take 1 hour of John's time and 0.5 hours of William's time. John has 10 hours available each day, but since William has hockey lessons, he only has 8 hours available each day. They get $20 profit per pitcher of lemonade, and $15 per batch of brownies. Formulate a LP to maximize profit."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent lemonade, x_1 to represent brownies. Then the optimization problem is:\nmaximize:\n20.0x_0 + 15.0x_1\nsubject to:\n0.5x_0 + 1.0x_1 <= 10.0\n0.2x_0 + 0.5x_1 <= 8.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A train can carry at most 500 passengers. It has two seat types: AC seats, and non-AC seats (AC is air conditioned). A profit of $50 is made on each AC seat ticket and a profit of $30 is made on each non-AC seat ticket. The train company reserves at least 100 seats as AC seats. However, a minimum of 2 times as many passengers prefer to travel on non-AC seats than on AC seats. How many seat tickets of each type should be sold to maximize profit? What is that profit?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent AC seats, x_1 to represent non-AC seats. Then the optimization problem is:\nmaximize:\n50.0x_0 + 30.0x_1\nsubject to:\n-1.0x_0 + 0.0x_1 <= -100.0\n2.0x_0 - 1.0x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "An electronics company makes economical and premium mobile phones in a factory that is divided into a hardware and software section. The hardware section must work 5 hours on each economical mobile phone but 12 hours on each premium one. The software section must work 3 hours for each mobile phone. The profit from the economical mobile phone is $150 and the profit from the premium mobile phone is $400. Due to a recent strike, the hardware section only has 150 hours available per week and the software section only has 100 hours available per week. How many of each phone should the company produce to maximize profit?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent economical, x_1 to represent premium mobile. Then the optimization problem is:\nmaximize:\n0.0x_0 + 400.0x_1\nsubject to:\n1.0x_0 + 12.0x_1 <= 150.0\n1.0x_0 + 3.0x_1 <= 100.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A meat processing plant has a machine that makes ham and bacon. Each kg of ham takes 15 minutes of machine time and each kg of bacon takes 8 minutes of machine time.  In a week the machine is only available for 2000 minutes. The plant can also make at most 200 kg of ham and at most 220 kg of bacon per week. If the profit per kg of ham is $20 and the profit per kg of bacon is $12, how many of each should the plant make to maximize profit?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent ham, x_1 to represent bacon. Then the optimization problem is:\nmaximize:\n20.0x_0 + 12.0x_1\nsubject to:\n15.0x_0 + 8.0x_1 <= 2000.0\n1.0x_0 + 0.0x_1 <= 200.0\n0.0x_0 + 1.0x_1 <= 220.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A software company has UI designers earning $2500 per week and software engineers earning $2000 per week. The contracts with companies to provide cloud services require at least 50 workers, of whom at least 10 must be software engineers. To make sure there is enough experience on the team, the number of software engineers should be at least a third of the number to UI designers. The company wants to keep the weekly wage bill below $200000. Formulate an LP problem to minimize the wage bill."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent UI designers, x_1 to represent software engineers. Then the optimization problem is:\nminimize:\n2500.0x_0 + 2000.0x_1\nsubject to:\n-1.0x_0 - 1.0x_1 <= -50.0\n0.0x_0 - 1.0x_1 <= -10.0\n0.33x_0 - 1.0x_1 <= 0.0\n2500.0x_0 + 2000.0x_1 <= 200000.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A factory makes bike tires and car tires. Bike tires take 4 minutes on the manufacturing machine and 2 minutes to fill with air. Car tires take 6 minutes on the manufacturing machine and 3.5 minutes to fill with air. The factory can run the manufacturing machine for at most 600 minutes and they have 400 minutes available for filling the tires with air. If the profit per bike tire is $12 and the profit per car tire is $20, how many of each tire should the factory make to maximize profit?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent bike tires, x_1 to represent car tires. Then the optimization problem is:\nmaximize:\n12.0x_0 + 20.0x_1\nsubject to:\n4.0x_0 + 6.0x_1 <= 600.0\n2.0x_0 + 3.5x_1 <= 400.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A company makes raincoats and umbrellas with images of Latin alphabet on them using a printing machine. Due to the popularity of Latin alphabet, the company must make at least 1200 raincoats or umbrellas, in any combination, per week. Also, in one week, the printing machine must be kept running for at least 70 hours. A raincoat takes 0.3 hours of printing time and costs $7. An umbrella takes 0.5 hours of printing time and costs $12. Formulate this problem so as to minimize total production costs."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent raincoats, x_1 to represent umbrellas. Then the optimization problem is:\nminimize:\n7.0x_0 + 12.0x_1\nsubject to:\n-1.0x_0 - 1.0x_1 <= -1200.0\n-0.3x_0 - 0.5x_1 <= -70.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A TCM company makes powdered medicine in two different packages, a regular package and premium package, to sell to TCM doctors. The regular package requires 100 g of medicinal herbs and 30 seconds of drying. A premium package requires 130 units of medicinal herbs and 60 seconds of drying. The company has available 9000 units of medicinal herbs and has available 3500 seconds in the drying machine. Since the premium package sells better, the number of regular packages must be less than the number of premium packages. In addition, the company must make at least 15 regular packages. If a regular package can treat 2 people and a premium batch can treat 3 people, how many of each type of package should be made to maximize the number of people that can be treated?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent regular package, x_1 to represent premium package. Then the optimization problem is:\nmaximize:\n2.0x_0 + 3.0x_1\nsubject to:\n100.0x_0 + 130.0x_1 <= 9000.0\n30.0x_0 + 60.0x_1 <= 3500.0\n1.0x_0 - 1.0x_1 <= 1.0\n-1.0x_0 + 0.0x_1 <= -15.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A company is delivering packages using two methods, drones and couriers. A drone can transport 4 packages every hour while a courier can transport 25 packages every hour. Drones cost an average of $2 per hour to maintain and couriers are paid $20 per hour. The company needs to deliver at least 800 packages and they can spend at most $1300 per hour for delivery. Since drones have a high up-front cost, the number of drones cannot exceed the number of couriers. How many of each method of delivering packages should be used to minimize the total number of deliveries using drones and couriers?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent drones, x_1 to represent couriers. Then the optimization problem is:\nminimize:\n4.0x_0 + 25.0x_1\nsubject to:\n-4.0x_0 - 25.0x_1 <= -800.0\n2.0x_0 + 20.0x_1 <= 1300.0\n1.0x_0 - 1.0x_1 <= 1.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A vending machine supplier is purchasing vending machines and they can buy a double-load or single-load model. A double-load vending machine sells 400 items whereas a single-load machine sells 325 items. The double-load machine needs to be re-stocked five times every month and uses 30 units of electricity every month. The single-load machine needs to be re-stocked two times every month and uses 10 units of electricity every month. Since the single-load machine is smaller and easier to fit, there must be at least 10 single-load models. However, due to the storage capacity, management prefers to have twice as many double-loads than single-load machines. Further, the supplier needs to sell at least 10000 items every month, and can use at most 600 units of electricity. How many of each vending machine type should the supplier purchase to minimize the total number of times restocked?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent double-load, x_1 to represent single-load model. Then the optimization problem is:\nminimize:\n5.0x_0 + 2.0x_1\nsubject to:\n0.0x_0 - 1.0x_1 <= -10.0\n1.0x_0 - 2.0x_1 <= 0.0\n-400.0x_0 - 325.0x_1 <= -10000.0\n30.0x_0 + 10.0x_1 <= 600.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A university has 1200 units of antibiotics to make two creams, a anti-inflammatory cream and a pain-killing cream. A container of anti-inflammatory cream requires 2 units of antibiotics and 4 units of water. A container of pain-killing cream requires 3 units of antibiotics and 2 units of water. The lab has to make at least 50 anti-inflammatory creams. However, since pain-killing creams are in high demand, at least 55% of the total number of creams must be pain-killing creams. How many of each should be made to minimize the total amount of water needed?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent anti-inflammatory cream, x_1 to represent pain-killing cream. Then the optimization problem is:\nminimize:\n4.0x_0 + 2.0x_1\nsubject to:\n2.0x_0 + 3.0x_1 <= 1200.0\n-1.0x_0 + 0.0x_1 <= -50.0\n0.55x_0 - 0.45x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A florist can deliver their flowers either by car or by truck. A car can deliver 6 units of flowers and uses 10 units of gas. A truck can deliver 9 units of flowers and uses 14 units of gas. The florist needs to deliver at least 130 units of flowers. Additionally, the number of cars used must exceed the number of trucks used. How many of each should be used to minimize the total amount of gas used?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent car, x_1 to represent truck. Then the optimization problem is:\nminimize:\n10.0x_0 + 14.0x_1\nsubject to:\n-6.0x_0 - 9.0x_1 <= -130.0\n-1.0x_0 + 1.0x_1 <= -1.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A photography firm is planning to open different stores to expand their reach to customers. They can open two types of stores; film-based and electrical-based stores. Since film-based stores take longer to process, there must be at least two times more electrical-based stores than film-based stores. However, management expects film-based stores to become more popular and requires at least 5 film-based stores to be opened. Film-based stores can on average process 2 orders every hour while an electrical-based store can process on average four orders every hour. Film-based stores requires 10 units of electricity every hour while the electric-based stores take 15 units of electricity every hour. Further, the photography firm wants to be able to make at least 170 orders per hour and use at most 600 units of electricity every hour. How many of each store should be opened to minimize the total number of stores?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent film-based, x_1 to represent electrical-based stores. Then the optimization problem is:\nminimize:\n1.0x_0 + 1.0x_1\nsubject to:\n2.0x_0 - 1.0x_1 <= 0.0\n-1.0x_0 + 0.0x_1 <= -5.0\n-2.0x_0 - 4.0x_1 <= -170.0\n10.0x_0 + 15.0x_1 <= 600.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A nutritionist recommends that a child eat fruits and drink juice to tackle a certain disease. Each serving of fruit contains 5 units of the necessary mineral and 3 units of hydration. Each serving of juice contains 7 units of the necessary mineral and 6 units of hydration. According to the nutritionist, the child must intake at least 60 units of the necessary mineral every week and 40 units of hydration for their body to better absorb the mineral into their body. Further, each serving of fruit contains 9 units of sugar and each serving of juice contains 14 units of sugar. Since juice is more convenient, the child wants to take at least twice as many servings of juice as fruits. How many of each should the child be served to minimize the total sugar intake?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent fruits, x_1 to represent juice. Then the optimization problem is:\nminimize:\n9.0x_0 + 14.0x_1\nsubject to:\n-5.0x_0 - 7.0x_1 <= -60.0\n-3.0x_0 - 6.0x_1 <= -40.0\n2.0x_0 - 1.0x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A patient lacking sleep can take two drowsiness medications, sleeping pills, and sleep supplement. Per serving, sleeping pills increase sleepiness by 2 units and introduces 0.6 units of discomfort. Per serving, sleep supplement increases sleepiness by 3.5 units and introduces 0.3 units of discomfort. Furthermore, pills contain 1 unit of sugar while sleep supplement contains 2.5 units of sugar per serving. The patient needs at least 10 units of sleepiness and can take at most 2.5 units of discomfort. How many servings of each should the patient take to minimize his sugar intake?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent sleeping pills, x_1 to represent sleep supplement. Then the optimization problem is:\nminimize:\n1.0x_0 + 2.5x_1\nsubject to:\n-2.0x_0 - 3.5x_1 <= -10.0\n0.6x_0 + 0.3x_1 <= 2.5\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A fitness trainer meal-preps two types of meals, a salmon lunch and a bison burger. The salmon lunch contains 15 grams of protein, 20 grams of carbs, and 8 grams of fat. The bison burger contains 30 grams of protein, 20 grams of carbs, and 13 grams of fat. The fitness trainer wants to get at least 160 grams of protein and 180 grams of carbs. In addition, because the salmon lunch is expensive, at most 25% of the meals should be salmon lunch. How many of each meal should he eat if he wants to minimize his fat intake?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent salmon lunch, x_1 to represent bison burger. Then the optimization problem is:\nminimize:\n8.0x_0 + 13.0x_1\nsubject to:\n-15.0x_0 - 30.0x_1 <= -160.0\n-20.0x_0 - 20.0x_1 <= -180.0\n0.75x_0 - 0.25x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A physics class is performing a volcano experiment using two mixtures, mixture A and mixture B. Mixture A uses 3 units of baking soda, 5 units of vinegar, and produces 2 units of eruption. Mixture B uses 4 units of baking soda, 7 units of vinegar, and produces 4 units of eruption. However, mixture A generates 2 units of garbage and mixture B generates 1 unit of garbage. The physics class has available 200 units of baking soda and 300 units of vinegar. If at most 60 units of garbage can be generated, how many of each type of mixture should be used to maximize the total amount of eruption produced?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent mixture A, x_1 to represent mixture B.. Then the optimization problem is:\nmaximize:\n2.0x_0 + 4.0x_1\nsubject to:\n3.0x_0 + 4.0x_1 <= 200.0\n5.0x_0 + 7.0x_1 <= 300.0\n2.0x_0 + 1.0x_1 <= 60.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A smoothie company offers delivery and ships in specialty delivery and medium bags. A specialty delivery bag can hold 12 orders while a medium bag can hold 7 orders. Most delivery drivers prefer medium bags, so at least three times as many medium bags must be used as specialty delivery bags. The smoothie company has at most 45 medium bags and 60 specialty delivery bags. If the company must send at least 6 specialty delivery bags and can send at most 50 bags in total, how many of each should they send to maximize the total number of smoothies that can be delivered?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent medium bags, x_1 to represent specialty delivery bag. Then the optimization problem is:\nmaximize:\n7.0x_0 + 12.0x_1\nsubject to:\n-1.0x_0 + 3.0x_1 <= 0.0\n1.0x_0 + 0.0x_1 <= 45.0\n0.0x_0 + 1.0x_1 <= 60.0\n0.0x_0 - 1.0x_1 <= -6.0\n1.0x_0 + 1.0x_1 <= 50.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A children clothing manufacturer can either implement small or large production lines. A small production line is capable of creating 150 sets of clothing every day and takes 12 employees to run. Conversely, the children clothing manufacturer may implement a large production line which requires 26 employees to create 500 sets of clothing per day. There are 435 employees and the manufacturer must meet the demand of at least 6300 sets of children clothing every day. How many of each production line type should be put in place to decrease the total number of production lines?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent small, x_1 to represent large production lines. Then the optimization problem is:\ndecrease:\n1.0x_0 + 1.0x_1\nsubject to:\n12.0x_0 + 26.0x_1 <= 435.0\n-1.0x_0 - 500.0x_1 <= -6300.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A lumber company owns and can use at most 450 acres of land where they can transport the lumber out using large and small logging trucks. Per acre of land, small logging trucks can be used to transport 3 units of wood. Per acre of land, a large logging truck can transport 7 units of wood. However, a small logging truck produces 12 units of carbon dioxide and requires 7 units of gasoline per acre. A large logging truck produces 25 units of carbon dioxide and requires 12 units of gasoline per acre. The lumbering company has access to 3200 units of gasoline and the company has vowed to limiting pollution to 5200 units of carbon dioxide. How should the two types of logging trucks be distributed to stay within the limits of carbon dioxide while maximizing the amount of wood transported?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent large, x_1 to represent small logging trucks. Then the optimization problem is:\nmaximizing:\n7.0x_0 + 3.0x_1\nsubject to:\n12.0x_0 + 7.0x_1 <= 3200.0\n25.0x_0 + 12.0x_1 <= 5200.0\n1.0x_0 + 1.0x_1 <= 450.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "An airport can transport travelers using commercial planes and private planes. A commercial plane can carry 180 travelers while a private plane can carry 30 travelers. Because the destination is more remote, there are few airport runways. Therefore, there must be twice as many private planes as commercial planes. If the airport needs to transport at least 3500 travelers, how many of each type of planes should be used to minimize the total number of planes used."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent commercial planes, x_1 to represent private planes. Then the optimization problem is:\nminimize:\n1.0x_0 + 1.0x_1\nsubject to:\n-180.0x_0 - 30.0x_1 <= -3500.0\n2.0x_0 - 1.0x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A house painting company can transport their paint in large cans or small cans. Large cans can hold 6 litres of paint while small cans can hold 2 litres of paint. Since small cans can be used up quickly and thus, not dry up as easily, the company wants to have at most 30% of the cans be large cans. However, there has to be at least 20 large cans especially for the basic colours. If the company needs to transport at least 120 litres of paint, how many of each size of cans should be transported to minimize the total number of cans?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent large cans, x_1 to represent small cans. Then the optimization problem is:\nminimize:\n1.0x_0 + 1.0x_1\nsubject to:\n-6.0x_0 - 2.0x_1 <= -120.0\n0.7x_0 - 0.3x_1 <= 0.0\n-1.0x_0 + 0.0x_1 <= -20.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A strawberry farmer delivers his strawberries in two types of containers, a box and a bucket. A box contains 7 units of strawberries whereas a bucket contains 9 units of strawberries. The farmer has access to 500 boxes and 300 buckets. Buckets sell for more profit; therefore, the farmer wants to sell at least three times more buckets than boxes. Additionally, he can transport at most 650 containers and at least 25 must be boxes. How many of each type of container should the farmer order to maximize the total amount of strawberries he can transport?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent box, x_1 to represent bucket. Then the optimization problem is:\nmaximize:\n7.0x_0 + 9.0x_1\nsubject to:\n1.0x_0 + 0.0x_1 <= 500.0\n0.0x_0 + 1.0x_1 <= 300.0\n3.0x_0 - 1.0x_1 <= 0.0\n1.0x_0 + 1.0x_1 <= 650.0\n-1.0x_0 + 0.0x_1 <= -25.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A supermarket can purchase two types of refrigerators to properly store their food, refrigerator ABC and refrigerator XYZ, and they have different specifications to consider. Refrigerator ABC is larger and can store 120 items but uses 3 kWh. Refrigerator XYZ is smaller more efficient and can store 80 items but uses 1 kWh. Due to soaring electric prices, the store is limited to at most 55 kWh but must store at least 1500 items. The store must have at least 8 refrigerator ABC’s and 5 refrigerator XYZ’s. How many of each type of refrigerator should the supermarket purchase to minimize the number of refrigerators needed?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent refrigerator ABC, x_1 to represent refrigerator XYZ. Then the optimization problem is:\nminimize:\n1.0x_0 + 1.0x_1\nsubject to:\n3.0x_0 + 1.0x_1 <= 55.0\n-120.0x_0 - 80.0x_1 <= -1500.0\n-1.0x_0 + 0.0x_1 <= -8.0\n0.0x_0 - 1.0x_1 <= -5.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "An MOA checks a patient’s eye pressure one-by-one either by using a tonometer or a “puff of air” test. The tonometer test takes 0.05 hours to make a reading while the ”puff of air” test takes 0.02 hours to make a reading. Since the tonometer is more standard, the number of tonometer tests must be larger than the number of “puff of air” tests. Since a lot of these patients are low risk here for a check-up, at least 30 patients should have their eye pressure checked using the “puff of air” test. If the office is open for 8 hours, maximize the number of patients whose temperature can be taken?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent tonometer, x_1 to represent “puff of air” test. Then the optimization problem is:\nmaximize:\n1.0x_0 + 1.0x_1\nsubject to:\n0.05x_0 + 0.02x_1 <= 8.0\n-1.0x_0 + 1.0x_1 <= -1.0\n0.0x_0 - 1.0x_1 <= -30.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A dental firm hires two types of employees: dentists and oral hygienists. Dentists work 12 hours every shift and oral hygienists work 5 hours every shift. Additionally, dentists are paid $900 per shift while oral hygienists are paid $250 per shift. It is close to Halloween and the dental firm expects more patients coming in. They require 1000 hours of labour. There must be at least 20 shifts of dentist to keep the office running. If there is a budget of $65000, how many of each type of employee should the firm schedule to work to minimize the total number of shifts?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent dentists, x_1 to represent oral hygienists. Then the optimization problem is:\nminimize:\n1.0x_0 + 1.0x_1\nsubject to:\n-12.0x_0 - 5.0x_1 <= -1000.0\n-1.0x_0 - 1.0x_1 <= -20.0\n900.0x_0 + 250.0x_1 <= 65000.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "Banking firm ABC can build remote and urban branches to expand their reach to customers. A remote branch expects 5 new account registrations per day and requires 2 registration experts. An urban branch generally opens accounts for 12 new account registrations every day and requires 7 registration experts. The bank has available 550 registration experts and wants to open at least 1200 new accounts every day. How many of each type of branch should banking firm ABC open to minimize the total number of branches needed?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent remote, x_1 to represent urban branches. Then the optimization problem is:\nminimize:\n1.0x_0 + 1.0x_1\nsubject to:\n2.0x_0 + 7.0x_1 <= 550.0\n-1.0x_0 - 1.0x_1 <= -1200.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A milk company is delivering milk to their local families’ homes directly either through bikes or by car. A worker on a bike can deliver 12 orders of milk and takes 40 minutes per trip. A worker on a car can deliver 50 orders of milk and takes 30 minutes per trip. The milk company needs to deliver at least 850 orders of milk. Additionally, at least 70% of delivery trips must be by bike to reduce the pollution. How many of each type of delivery trips must be scheduled to minimize the minutes per trip?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent bikes, x_1 to represent car. Then the optimization problem is:\nminimize:\n40.0x_0 + 30.0x_1\nsubject to:\n-0.3x_0 + 0.7x_1 <= 0.0\n-12.0x_0 - 50.0x_1 <= -850.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A logging company ships their lumber to a nearby country using logging trucks and by lumber carrier vessels. Each logging truck costs the logging company $250 for every trip and moves 1000 lbs of lumber. A lumber carrier vessel costs $1000 every trip and moves 6000 lbs of lumber. Due to limited waters and difficulties in scheduling the trips for lumber carrier vessels, the company’s management asks that the number of logging trucks must exceed the number of lumber carrier vessels. The logging company must transport at least 300000 lbs of lumber to the nearby country. How many of each type of transportation should the company schedule to move their lumber to minimize the total cost?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent logging trucks, x_1 to represent lumber carrier vessels. Then the optimization problem is:\nminimize:\n250.0x_0 + 1000.0x_1\nsubject to:\n-1.0x_0 + 1.0x_1 <= -1.0\n-1000.0x_0 - 6000.0x_1 <= -300000.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A tutoring company hires full-time tutors and supplements with assistant tutors from a nearby high school. Every day, full-time tutors work 8 hours and get paid $650 while assistant tutors work 4 hours and get paid $120. During Christmas break, the tutoring company expects more interest and plans to require 1200 hours of teaching availability. If the tutoring company has a budget of $55000, how many tutors and assistant tutors should be hired to minimize the amount of staff?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent full-time tutors, x_1 to represent assistant tutors. Then the optimization problem is:\nminimize:\n1.0x_0 + 1.0x_1\nsubject to:\n-8.0x_0 - 4.0x_1 <= -1200.0\n650.0x_0 + 120.0x_1 <= 55000.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A nurse suggests that his patient drink more protein shakes and milk to meet their calcium and protein requirements. One glass of protein shake contains 3 units of calcium, 2 units of protein, and 3 grams of sugar. One glass of milk contains 5 units of calcium, 1 unit of protein, and 5 grams of sugar. The patient must get at least 90 units of calcium and 85 units of protein. Since the patent prefers milk, they must drink at least 3 times as many glasses of milk as glasses of protein shakes. How many glasses of each should they drink to minimize their sugar intake?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent protein shakes, x_1 to represent milk. Then the optimization problem is:\nminimize:\n3.0x_0 + 5.0x_1\nsubject to:\n-3.0x_0 - 5.0x_1 <= -90.0\n-2.0x_0 - 1.0x_1 <= -85.0\n3.0x_0 - 1.0x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A food distributer can either move their product using trucks or boats. A truck can take 30 units of product and produces 80 units of pollution per trip whereas boats take 50 units of product and produces 60 units of pollution per trip. The food distributer needs to move 1000 units of product and must have a maximum of 40% of the trips using boats due to limitations of sea transportation regulations. Additionally, there must be at least 10 trips using a truck. How many of each form of transportation should be used to minimize the total amount of pollution produced?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent trucks, x_1 to represent boats. Then the optimization problem is:\nminimize:\n80.0x_0 + 60.0x_1\nsubject to:\n-30.0x_0 - 50.0x_1 <= -1000.0\n-1.0x_0 + 0.0x_1 <= -10.0\n-0.4x_0 + 0.6x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A physics teacher shows her students two experiments, a force experiment and a hydraulics experiment. In the force experiment, 5 units of the solid and 2 units of the gas mixes and reacts to create 3 units of excitement. In the hydraulics experiment, 7 units of the solid and 6 units of the gas mixes and reacts to create 5 units of excitement. In addition, the hydraulics experiment produces 2 units of heat while the force experiment produces 3 units of heat.  The lab has available 90 units of the solid and 85 units of the gas. If at most 15 units of heat can be produced, how many experiments of each should be done to maximize the total excitement?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent force experiment, x_1 to represent hydraulics experiment. Then the optimization problem is:\nmaximize:\n3.0x_0 + 5.0x_1\nsubject to:\n5.0x_0 + 7.0x_1 <= 90.0\n2.0x_0 + 6.0x_1 <= 85.0\n3.0x_0 + 2.0x_1 <= 15.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "An athlete drinks protein shakes in the morning before a workout and is planning for the coming month. She has two selections of protein shakes, chocolate powder or vanilla powder shakes. Each scoop of chocolate powder protein shake contains 20 grams of protein and 4 grams of sugar. Each scoop of vanilla powder protein shake contains 18 grams of protein and 7 grams of sugar. Since she prefers the vanilla flavour, she would like to drink at least twice as many vanilla powder shakes as chocolate powder shakes. However, she must also drink at least 2 scoops of the chocolate powder shake. To avoid high blood glucose levels, she is limiting her consumption to at most 500 grams of sugar over this period of time. How many of each protein shake should the athlete drink to maximize her total protein intake over this period of time?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent chocolate powder, x_1 to represent vanilla powder shakes. Then the optimization problem is:\nmaximize:\n20.0x_0 + 18.0x_1\nsubject to:\n4.0x_0 + 7.0x_1 <= 500.0\n2.0x_0 - 1.0x_1 <= 0.0\n-1.0x_0 + 0.0x_1 <= -2.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A sample can be analyzed by two machines for their chemical make-up, Analyzer 3000 and QuickAnalytics. Analyzer 3000 analyzes 20 samples of water and 30 samples of dirt per hour. QuickAnalytics examines 40 samples of water and 10 samples of dirt per hour. In addition, Analyzer 3000 creates 3.5 units of heat per hour while QuickAnalytics creates 4.5 units of heat per hour. If at least 1000 samples of water and 800 samples of dirt must be analyzed, how many hours should each machine be used to minimize the total amount of heat produced?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent Analyzer 3000, x_1 to represent QuickAnalytics.. Then the optimization problem is:\nminimize:\n3.5x_0 + 4.5x_1\nsubject to:\n-20.0x_0 - 40.0x_1 <= -1000.0\n-30.0x_0 - 10.0x_1 <= -800.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "Professor ABC sells his economics textbook as paperback or hardcover versions. Paperback books yield a profit of $150 USD whereas hardcover versions yield a profit of $200 USD. Since hardcover versions are more sturdy and contain some extra supplementary materials, there must be at least three times as many hardcover than paperback textbooks. However, because paperback books are less expensive, at least 100 paperback versions must be created. If the professor sells at least 1000 textbooks every year, how many of each version should he request the publisher to print to maximize the profit?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent paperback, x_1 to represent hardcover versions. Then the optimization problem is:\nmaximize:\n150.0x_0 + 200.0x_1\nsubject to:\n3.0x_0 - 1.0x_1 <= 0.0\n-1.0x_0 + 0.0x_1 <= -100.0\n-1.0x_0 - 1.0x_1 <= -1000.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A university has a car building fundraiser where students build toy cars and toy trucks using wheels and wood and sell to benefit a nearby shelter. A toy car requires 4 wheels and 7 units of wood while a toy truck requires 6 wheels and 10 units of wood. Each team has at most 40 wheels and 75 units of wood. In addition, each team can build at most 3 toy cars and the number of toy trucks must be larger than the number toy cars. If a toy car can fundraise $30 and a toy truck can fundraise $35, how many of each toy should a team build to maximize the total amount fundraised?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent toy cars, x_1 to represent toy trucks. Then the optimization problem is:\nmaximize:\n30.0x_0 + 35.0x_1\nsubject to:\n4.0x_0 + 6.0x_1 <= 40.0\n7.0x_0 + 10.0x_1 <= 75.0\n1.0x_0 + 0.0x_1 <= 3.0\n1.0x_0 - 1.0x_1 <= -1.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "Architects ABC has a budget of one hundred thousand dollars to spend every week on their employees. They hire architects and drafters to help with their clients’ projects. An architect averages 3000 dollars every week and can complete 2 projects every week. A drafter does not have all the certifications and requires an architect for supervision at all times. Therefore, there must be more architects than drafters. Additionally, a drafter averages 1200 dollars every week and completes 1 project every week. How many architects and drafters should be contracted to maximize the number of projects completed every week?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent architects, x_1 to represent drafters. Then the optimization problem is:\nmaximize:\n2.0x_0 + 1.0x_1\nsubject to:\n3000.0x_0 + 1200.0x_1 <= 100000.0\n-1.0x_0 + 1.0x_1 <= -1.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A lotion company has 1000 units of emulsifiers that are used to make strong topical anesthetics and weak topical anesthetics. Each container of strong topical anesthetics takes 4 units of emulsifiers and 3 units of salicylates. A container of weak topical anesthetics requires 7 units of emulsifiers and 2 units of salicylates. Since many customers are purchasing for daily applications, at least 60% of containers made must be weak topical anesthetics. However, there must be at least 300 containers of the strong topical anesthetics. How many of each container should be made to minimize the total amount of salicylates required?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent strong topical anesthetics, x_1 to represent weak topical anesthetics. Then the optimization problem is:\nminimize:\n3.0x_0 + 2.0x_1\nsubject to:\n4.0x_0 + 7.0x_1 <= 1000.0\n-1.0x_0 + 0.0x_1 <= -300.0\n0.6x_0 - 0.4x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A tourism company is expecting an increase in tourists after a pandemic and expects 10000 customers in the coming month. The tourism company can either use a minivan which can transport 6 tourists and profits the company $300 each time. They can also use a tourism bus which can transport 30 tourists and profits the company $1800 each time. There must be at least 10 tourism buses in the coming month because many come in large groups. Additionally, due to the close proximity to the tour guide, the tourism company plans to have at least 45% of the trips be by minivan to improve customer service. How many trips of each type of vehicle should be scheduled to maximize the total profit for the company?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent minivan, x_1 to represent tourism bus. Then the optimization problem is:\nmaximize:\n300.0x_0 + 1800.0x_1\nsubject to:\n0.0x_0 - 1.0x_1 <= -10.0\n-6.0x_0 - 30.0x_1 <= -10000.0\n-0.55x_0 + 0.45x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A manufacturing plant has the option to offer a shuttle bus and outsource to a taxi service. A shuttle bus costs $20 and carries 7 workers, whereas a taxi service costs $50 and carries 5 workers. The manufacturing plant has to transport at least 250 workers and at most 5 shuttle buses can be used. How many of each type of transport should be taken to minimize the total cost?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent shuttle bus, x_1 to represent taxi service. Then the optimization problem is:\nminimize:\n20.0x_0 + 50.0x_1\nsubject to:\n-7.0x_0 - 5.0x_1 <= -250.0\n1.0x_0 + 0.0x_1 <= 5.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A government sanitization plant processes liquid waste and solid waste in batches. Liquid waste requires 30 units of disinfectant and 20 units of bacteria. Solid waste requires 25 units of disinfectant and 15 units of bacteria. The sanitization plant has available 1500 units of disinfectant and 1000 units of bacteria. The batches of liquid waste processed must be twice the number of solid waste processed. In addition, at most 10 batches of solid waste can be processed due to storage limitations. If each liquid waste batch is the result of 10 people and each solid waste batch is the result of 3 people, how many of each should the plant process to maximize the number of people served?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent liquid waste, x_1 to represent solid waste. Then the optimization problem is:\nmaximize:\n10.0x_0 + 3.0x_1\nsubject to:\n30.0x_0 + 25.0x_1 <= 1500.0\n20.0x_0 + 15.0x_1 <= 1000.0\n-1.0x_0 + 2.0x_1 <= 0.0\n0.0x_0 + 1.0x_1 <= 10.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A researcher is transporting their arsenal of imaging systems using two different methods, by delivery truck and by van. Transporting by delivery truck takes 12 hours and costs $300 per trip. Transporting by van takes 10 hours and costs $200 per trip. The researcher needs to transport 20 trips worth of equipment and has a budget of $5500. Additionally, the number of transports by the delivery truck must be less than the number of transports by van. How many of each transportation method should they use to minimize the total number of hours spent on delivery?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent delivery truck, x_1 to represent van. Then the optimization problem is:\nminimize:\n12.0x_0 + 10.0x_1\nsubject to:\n1.0x_0 - 1.0x_1 <= 1.0\n300.0x_0 + 200.0x_1 <= 5500.0\n-1.0x_0 - 1.0x_1 <= -20.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A butcher sells marinated wild boar and processed lamb chops. Each portion of marinated wild boar requires 3 minutes of preparation and 6 ounces of meat. One portion of processed lamb chops requires 1 minute of preparation and 7 ounces of meat. Since processed lamb chops are more popular and common, the butcher plans to make at least twice as many processed lamb chops as marinated wild boars. The butcher has a small staff and only has available 250 collective minutes every week to preparing these two items and only has available 1375 ounces of meat. If a portion of marinated wild boar sells for a revenue of 6 dollars whereas a portion of processed lamb chops sells for a revenue of 4 dollars, how many of each should the butcher make to maximize their revenue?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent marinated wild boar, x_1 to represent processed lamb chops. Then the optimization problem is:\nmaximize:\n6.0x_0 + 4.0x_1\nsubject to:\n6.0x_0 + 7.0x_1 <= 1375.0\n3.0x_0 + 1.0x_1 <= 250.0\n2.0x_0 - 1.0x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A water purification station has a large plant and a small plant. The large plant purifies 30 units of water per hour and produces 20 units of by-product per hour. The small plant purifies 12 units of water per hour and produces 2 units of by-product per hour. The large plant requires 15 filters while the small plant requires 12 filters per hour. The water purification station only has available 1200 filters right now. If the station must purify at least 1200 units of water and at least 500 units of by-product, how many hours should each plant be run to minimize the total time needed?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent large plant, x_1 to represent small plant. Then the optimization problem is:\nminimize:\n1.0x_0 + 1.0x_1\nsubject to:\n-30.0x_0 - 12.0x_1 <= -1200.0\n-20.0x_0 - 2.0x_1 <= -500.0\n15.0x_0 + 12.0x_1 <= 1200.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A clothing manufacturing company needs to transport their product by cargo ship or airplane. A cargo ship can transport 40 units per trip while by airplane can transport 60 units per trip. A cargo ship produces 20 units of pollution and an airplane produces 35 units of pollution. There can be at least 6 airplane trips made and at least 25% of all trips must be made by cargo ship. The company needs to transport at least 750 units of their product. How many of each transportation should they use to minimize the total amount of pollution produced?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent cargo ship, x_1 to represent airplane. Then the optimization problem is:\nminimize:\n20.0x_0 + 35.0x_1\nsubject to:\n-40.0x_0 - 60.0x_1 <= -750.0\n0.0x_0 - 1.0x_1 <= -6.0\n-0.75x_0 + 0.25x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A garbage collection company uses two types of vehicles, truck A and truck B. Truck A requires 3 workers while truck B requires 4 workers. Truck A can collect 40 units of garbage and truck B can collect 50 units of garbage. The garbage collection company has employed 150 workers. The company must use more truck A models than truck B models. Additionally, there must be at least 5 truck A’s and 8 truck B’s. How many of each type of vehicles should the company use to maximize the total amount of garbage that can be collected?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent truck A, x_1 to represent truck B.. Then the optimization problem is:\nmaximize:\n40.0x_0 + 50.0x_1\nsubject to:\n3.0x_0 + 4.0x_1 <= 150.0\n-1.0x_0 + 1.0x_1 <= -1.0\n-1.0x_0 + 0.0x_1 <= -5.0\n0.0x_0 - 1.0x_1 <= -8.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A city’s dispatching service needs to send out firefighting units for an upcoming extremely dry period. Firefighting units can either send units of firefighters or volunteer fire patrols. Firemen can put out 1000 sq ft of fire per trip and takes 10 minutes. Volunteer fire patrols can put out 800 sq ft of fire per trip and takes 12 minutes. There is a dry period of at least 8000 minutes that has to be covered and at least 10% of all units must be volunteer fire patrols due to shortages in budget. In addition, there can be at most 30 units dispatched because the city has limited fire trucks. How should the dispatcher allocate resources to each type of firefighting units to maximize the total sq ft that can be put out?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent firefighters, x_1 to represent volunteer fire patrols. Then the optimization problem is:\nmaximize:\n0.0x_0 + 0.0x_1\nsubject to:\n-10.0x_0 - 12.0x_1 <= -8000.0\n0.1x_0 - 0.9x_1 <= 0.0\n1.0x_0 + 1.0x_1 <= 30.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A landscaping company provides services from an expert or an apprentice. An expert costs the company 500 dollars for each shift and can care for 100 square meters of land whereas an apprentice costs the company 300 dollars for each shift and can care for 80 square meters of land. Because of the price to the customer, the company expects the demand of the public to want at least twice as many apprentices than experts. However, there are loyal customers that prefer the experts. Therefore, at least 10% of shifts must be expert shifts. The company must care for 5000 square meters of land. How many of each type of service should be used to minimize the total cost to the company?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent expert, x_1 to represent apprentice. Then the optimization problem is:\nminimize:\n500.0x_0 + 300.0x_1\nsubject to:\n2.0x_0 - 1.0x_1 <= 0.0\n-0.9x_0 + 0.1x_1 <= 0.0\n-100.0x_0 - 80.0x_1 <= -5000.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A doctor can prescribe two types of medication for high glucose levels, a diabetic pill and a diabetic shot. Per dose, diabetic pill delivers 1 unit of glucose reducing medicine and 2 units of blood pressure reducing medicine. Per dose, a diabetic shot delivers 2 units of glucose reducing medicine and 3 units of blood pressure reducing medicine. In addition, diabetic pills provide 0.4 units of stress and the diabetic shot provides 0.9 units of stress. At most 20 units of stress can be applied over a week and the doctor must deliver at least 30 units of glucose reducing medicine. How many doses of each should be delivered to maximize the amount of blood pressure reducing medicine delivaered to the patient?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent diabetic pill, x_1 to represent diabetic shot. Then the optimization problem is:\nmaximize:\n2.0x_0 + 3.0x_1\nsubject to:\n-1.0x_0 - 2.0x_1 <= -30.0\n0.4x_0 + 0.9x_1 <= 20.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "There are two methods of extracting a chemical element, method X and method Y.  Method X requires 5 atomic units (au) of aluminum, 1 au of oxygen, and can extract 0.5 au of the desired chemical element. Method Y requires 6 au of aluminum, 2 au of oxygen, and can extract 0.7 au of the desired chemical element. There are 650 au of aluminum, and 425 au of oxygen available. What is the best combination of these two methods to maximize the total amount of desired chemical element?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent method X, x_1 to represent method Y.. Then the optimization problem is:\nmaximize:\n0.5x_0 + 0.7x_1\nsubject to:\n5.0x_0 + 6.0x_1 <= 650.0\n1.0x_0 + 2.0x_1 <= 425.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A toy storage company needs to transport toys using a manual pallet jack or an electric pallet jack. The toy storage company has access to at most 6 manual pallet jacks and 15 electric pallet jacks. The manual pallet jacks can transport 15 boxes every hour while electric pallet jacks can transport 25 boxes every hour. Since electric jacks require less work, the number of electric pallet jacks must exceed the number of manual pallet jacks. If the company can use at most 8 manual pallet jacks and at least 5 electric pallet jacks, how many of each should the company use to maximize the number of boxes they can transport?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent manual pallet jack, x_1 to represent electric pallet jack. Then the optimization problem is:\nmaximize:\n15.0x_0 + 25.0x_1\nsubject to:\n1.0x_0 - 1.0x_1 <= -1.0\n1.0x_0 + 0.0x_1 <= 8.0\n0.0x_0 - 1.0x_1 <= -5.0\n1.0x_0 + 0.0x_1 <= 6.0\n0.0x_0 + 1.0x_1 <= 15.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A composting company can store compost in medium containers and large containers. A medium container needs to be checked 5 times a week and can store 25 units of compost. A large container needs to be checked 2 times a week and can store 40 units of compost. The company needs to store at least 500 units of compost and there must be at least 3 medium containers. There must also be at least 2 large containers and the number of large containers must be three times as much as the number of medium containers. How many of each type of containers should be used to minimize the total number of times checking containers?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent medium containers, x_1 to represent large containers. Then the optimization problem is:\nminimize:\n5.0x_0 + 2.0x_1\nsubject to:\n0.0x_0 - 1.0x_1 <= -2.0\n-1.0x_0 + 0.0x_1 <= -3.0\n-25.0x_0 - 40.0x_1 <= -500.0\n3.0x_0 - 1.0x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A chemist is performing novel research to create element A using two known methods: the gamma experiment and the omega experiment. The gamma experiment creates 12 units of element A and uses 3 units of electricity, 6 units of copper, and 3 minutes. The omega experiment creates 16 units of element A and uses 2 units of electricity, 9 units of copper, and 1 minutes. The chemist has available 1000 minutes, 4200 units of copper, and 1100 units of electricity. How many of each experiment should the chemist perform to maximize the total amount of element A produced?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent gamma experiment, x_1 to represent omega experiment. Then the optimization problem is:\nmaximize:\n12.0x_0 + 16.0x_1\nsubject to:\n3.0x_0 + 1.0x_1 <= 1000.0\n6.0x_0 + 9.0x_1 <= 4200.0\n3.0x_0 + 2.0x_1 <= 1100.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A strawberry farmer has available 225 hectares of land and she needs to harvest the strawberries either through employees or U-pick. For each hectare of land, employees can hand-pick 60 lbs of strawberries which creates 5 lbs of waste, and takes 30 minutes. Conversely, for each hectare of land, opening the farm for U-pick can pick 45 lbs of strawberries which creates 20 lbs of waste, but only takes 20 minutes. The farmer has a maximum amount of people allowed on the field at all times and due to the restriction of trying to sell the product while it is still fresh, expects that at maximum capacity she only has 8000 minutes available for picking. Additionally, there can be at most 6400 lbs of waste. How many hectares should be allocated to each harvesting technique to maximize the amount of strawberries that can be picked?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent employees, x_1 to represent U-pick. Then the optimization problem is:\nmaximize:\n60.0x_0 + 45.0x_1\nsubject to:\n1.0x_0 + 1.0x_1 <= 225.0\n30.0x_0 + 20.0x_1 <= 8000.0\n5.0x_0 + 20.0x_1 <= 6400.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A furniture store builds and sells sofas and beds. Each sofa costs 6 units of wood and 8 units of time while each bed costs 5 units of wood and 10 units of time. The store has available 620 units of wood and 1055 units of time. Each bed takes an additional 5 hours of shipping time while each sofa takes 3 hours of shipping time. Since there are usually more sofas than beds, the store aims to build twice as many sofas than beds. How many of each should the store make to minimize the total shipping time?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent sofas, x_1 to represent beds. Then the optimization problem is:\nminimize:\n3.0x_0 + 5.0x_1\nsubject to:\n-1.0x_0 + 2.0x_1 <= 0.0\n6.0x_0 + 5.0x_1 <= 620.0\n8.0x_0 + 10.0x_1 <= 1055.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A pharmaceutical manufacturing plant has 1000 mg of cornstarch to rush orders of diabetic pills and latex gloves. Each diabetic pill requires 4 mg of cornstarch and 0.2 minutes to manufacture. Each individual latex glove requires 7 mg of cornstarch and 0.15 minutes to manufacture. The pharmaceutical manufacturing plant needs to make at least 20 diabetic pills. Since latex gloves are important, at least 60% of produced items must be latex gloves. How many of each should the pharmaceutical manufacturing plant make to minimize the total number of minutes needed?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent diabetic pills, x_1 to represent latex gloves. Then the optimization problem is:\nminimize:\n0.2x_0 + 0.15x_1\nsubject to:\n4.0x_0 + 7.0x_1 <= 1000.0\n-1.0x_0 + 0.0x_1 <= -20.0\n0.6x_0 - 0.4x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A popular coffee shop has coffee and cappuccinos. Each coffee requires 8 units of milk and 2 units of water. Each cappuccino requires 7 units of cream and 4 units of water. The coffee shop purchases a total of 3300 units of milk and 2600 units of cream. Regulars like the coffee and at least thirty percent of drinks must be coffee. However, cappuccinos make more profit, and the owner wants to sell more cappuccino than coffee. Since the town is in a water shortage, how many of each drink should be made to minimize the total amount of water needed?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent coffee, x_1 to represent cappuccinos. Then the optimization problem is:\nminimize:\n2.0x_0 + 4.0x_1\nsubject to:\n8.0x_0 + 1.0x_1 <= 3300.0\n1.0x_0 + 7.0x_1 <= 2600.0\n1.0x_0 - 1.0x_1 <= -1.0\n-0.7x_0 + 0.3x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A woman with vitamin deficiency is taking supplements from two brands, super vitamin XYZ and vitamin ABC. Super vitamin XYZ contains 2 mg of vitamin, 5 mg of fiber, and causes 2 units of drowsiness per serving. Vitamin ABC contains 1.5 mg of vitamin, 3 mg of fiber, and causes 3 units of drowsiness per serving. The woman wants to get at least 30 mg of vitamin and 55 mg of fiber. In addition, there must be at most 40% of the supplements taken from super vitamin XYZ and there must be at least 3 servings of super vitamin XYZ because it is expiring soon. How many servings of each should she take to minimize her total drowsiness."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent super vitamin XYZ, x_1 to represent vitamin ABC. Then the optimization problem is:\nminimize:\n2.0x_0 + 3.0x_1\nsubject to:\n-2.0x_0 - 1.5x_1 <= -30.0\n-5.0x_0 - 3.0x_1 <= -55.0\n0.6x_0 - 0.4x_1 <= 0.0\n-1.0x_0 + 0.0x_1 <= -3.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "An internet supplier needs to deliver routers to their customers when they first sign up. They can either transport using their internal drivers or outsource to external drivers. Internal drivers spend more time to help the customers set up and can deliver 20 routers every day whereas the external drivers can deliver 35 routers every day. External drivers use hybrid cars and produce 5 units of pollution while the internal drivers use gasoline cars and produce 12 units of pollution. The internet supplier needs to deliver at least 500 routers every day and internal drivers must make up at least 20% of all drivers due to their customer service. There must also be at least 5 external drivers. How many of each type of driver should the internet supplier plan to contract to minimize the total amount of pollution?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent internal drivers, x_1 to represent external drivers. Then the optimization problem is:\nminimize:\n12.0x_0 + 5.0x_1\nsubject to:\n-20.0x_0 - 35.0x_1 <= -500.0\n-0.8x_0 + 0.2x_1 <= 0.0\n0.0x_0 - 1.0x_1 <= -5.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "Emergency supplies need to be delivered to a remote area and can either go by airplane or helicopter. An airplane can transport 35 units of goods and takes 30 minutes while a helicopter can transport 20 units of goods and takes 10 minutes due to easier take-off and landing. The number of helicopters must exceed the number of airplanes. Additionally, there must be at least 5 airplanes to fully utilize the landing space.  If there needs to be at least 500 units of goods transported, how many of each type of transportation should be utilized to minimize the total number of minutes needed?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent airplane, x_1 to represent helicopter. Then the optimization problem is:\nminimize:\n30.0x_0 + 10.0x_1\nsubject to:\n-35.0x_0 - 20.0x_1 <= -500.0\n1.0x_0 - 1.0x_1 <= -1.0\n-1.0x_0 + 0.0x_1 <= -5.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A hospital gives pupil dilation drops using two types of dilation drops, fast-acting eye drops and slow-acting eye drops. The fast-acting eye drops take 5 minutes per patient to adjust the patient’s pupils while the slow-acting eye drops take 25 minutes per patient. Since the fast-acting eye drops are more expensive, at least twice as many patients must be dilated using the slow-acting eye drops than the fast-acting eye drops. However, at least 25 patients must be dilated with the fast-acting eye drops. If the clinic is open for 15000 minutes, maximize the number of patients that can be dilated."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent fast-acting eye drops, x_1 to represent slow-acting eye drops. Then the optimization problem is:\nmaximize:\n1.0x_0 + 1.0x_1\nsubject to:\n-1.0x_0 + 0.0x_1 <= -25.0\n5.0x_0 + 25.0x_1 <= 15000.0\n2.0x_0 - 1.0x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A famous chocolate shop is expecting a lot of orders because of an upcoming holiday. The chocolate shop is famous for selling two products, large boxes of chocolates, or small boxes of chocolates. A large box of chocolate has 24 individual chocolates while a small box of chocolate has 12 individual chocolates. The chocolate shop has a delivery service, and each trip, the shop owner can prepare ahead of time at most 110 large boxes of chocolates or 150 small boxes of chocolates. Due to space limitations of their truck, the truck can fit at most 90 total boxes of chocolates and because of a sale, there must be at least 10 large boxes of chocolates. However, small boxes of chocolates are less expensive and the shop owner expects to move at least three times as many small boxes of chocolates than large boxes of chocolates. How many of each size of chocolate box should the shop owner put in their truck for each trip to maximize the total number of individual chocolates transported to their customers?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent large boxes of chocolates, x_1 to represent small boxes of chocolates. Then the optimization problem is:\nmaximize:\n24.0x_0 + 12.0x_1\nsubject to:\n1.0x_0 + 0.0x_1 <= 110.0\n0.0x_0 + 1.0x_1 <= 150.0\n1.0x_0 + 1.0x_1 <= 90.0\n-1.0x_0 + 0.0x_1 <= -10.0\n3.0x_0 - 1.0x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A competitive swimmer is training heavily and to do so, plans to eat steaks and chicken breasts over the coming week. Each steak contains 900 calories and 40 g of protein. Each chicken breast contains 700 calories and 20 g of protein. He prefers to eat chicken breasts and decides to eat at least 2 times as many chicken breasts as steaks over the coming week. However, he must also eat at least 10 steaks over the week. If he must consume at least 1200 g of protein over this coming week, how many steaks and chicken breasts should he eat to minimize the total amount of calories he is eating?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent steaks, x_1 to represent chicken breasts. Then the optimization problem is:\nminimize:\n900.0x_0 + 700.0x_1\nsubject to:\n-40.0x_0 - 20.0x_1 <= -1200.0\n2.0x_0 - 1.0x_1 <= 0.0\n-1.0x_0 + 0.0x_1 <= -10.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A nearby lake is frequently artificially seeded with trout for local fishermen. The trout are transported using either large trucks or by boat. Transporting using large trucks can take 2000 trout and costs $300 per trip. Transporting with boat can take 1200 trout and costs $100 per trip. Since boats take extra preparation, at least 75% of trips should be by large trucks. Additionally, there can be at most 5 trips by boat. If at least 7000 trout need to be seeded into the nearby lake, how many of each type of trip should be taken to minimize the total cost?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent large trucks, x_1 to represent boat. Then the optimization problem is:\nminimize:\n300.0x_0 + 100.0x_1\nsubject to:\n-2000.0x_0 - 1200.0x_1 <= -7000.0\n-0.25x_0 + 0.75x_1 <= 0.0\n0.0x_0 + 1.0x_1 <= 5.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "In the North, a delivery service can deliver using either sleds or snowmobile. Snowmobiles can deliver 150 packages while sleds can deliver 125 packages. Most villages do not want snowmobiles to pollute their regions. Therefore, there must be at least two times more sleds than snowmobiles. If the delivery service wants to deliver 150000 packages, minimize the total number of deliveries."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent sleds, x_1 to represent snowmobile. Then the optimization problem is:\nminimize:\n1.0x_0 + 1.0x_1\nsubject to:\n-1.0x_0 + 2.0x_1 <= 0.0\n-125.0x_0 - 150.0x_1 <= -150000.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A waste treatment company must remove waste using a large container or a medium container. A large container can take 5 tons of waste while a medium container can take 3.5 tons of waste. The treatment plant has available at most 40 large containers and 35 medium containers. Additionally, due to logistics in the storage warehouse, there must be at most 65 total containers and they must use at least 6 medium containers. Finally, there must be twice as many medium containers than large containers. How many of each container should they use to maximize the total amount of waste they can transport?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent large container, x_1 to represent medium container. Then the optimization problem is:\nmaximize:\n5.0x_0 + 3.5x_1\nsubject to:\n2.0x_0 - 1.0x_1 <= 0.0\n1.0x_0 + 0.0x_1 <= 40.0\n0.0x_0 + 1.0x_1 <= 35.0\n1.0x_0 + 1.0x_1 <= 65.0\n0.0x_0 - 1.0x_1 <= -6.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A car manufacturing company needs to distribute their cars to their retail stores by either large trailers or small trailers. A large trailer can carry 6 cars while a small trailer can carry 4 cars. Since large trailers are harder to get a hold of, the number of small trailers used has to be at least three times the number of large trailers used. If at least 80 cars need to be transported, minimize the total number of trailers needed."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent large trailers, x_1 to represent small trailers. Then the optimization problem is:\nminimize:\n1.0x_0 + 1.0x_1\nsubject to:\n-6.0x_0 - 4.0x_1 <= -80.0\n3.0x_0 - 1.0x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A grocery store sushi supplier makes sushi in bulk and can purchase either an all-in-one manufacturing line or a decoupled manufacturing line. The all-in-one manufacturing line is more efficient and can output 10000 orders per day while the decoupled manufacturing line can output 7000 items per day. The all-in-one manufacturing line requires 5 workers per day while the decoupled manufacturing line requires 10 workers per day. The grocery store sushi supplier must be able to satisfy at least 150000 orders per day and has allocated a budget to hire 135 workers. Since the decoupled manufacturing line is less efficient, at most 35% of the production can be decoupled manufacturing lines. However, there are some legacy factories remaining that already have decoupled manufacturing lines and about 10% of workers are trained on these older methods. Therefore, at least 10% must be decoupled manufacturing lines. How many of each manufacturing line should the sushi supplier plan for to reduce the total number of manufacturing lines?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent all-in-one manufacturing, x_1 to represent decoupled manufacturing line. Then the optimization problem is:\nreduce:\n1.0x_0 + 1.0x_1\nsubject to:\n-1.0x_0 - 1.0x_1 <= -150000.0\n5.0x_0 + 10.0x_1 <= 135.0\n-0.35x_0 + 0.65x_1 <= 0.0\n0.1x_0 - 0.9x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A gas company can transport gas using a pipeline or by train. A pipeline can carry 8000 units of gas and a train can carry 2000 units of gas every day. Due to recent environmental changes, the number of trains used must be at least twice as many as the number of pipelines. If at least 1000000 units of gas needs to be transported every day, minimize the total number of pipelines and trains needed."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent pipeline, x_1 to represent train. Then the optimization problem is:\nminimize:\n1.0x_0 + 1.0x_1\nsubject to:\n-8000.0x_0 - 2000.0x_1 <= -1000000.0\n2.0x_0 - 1.0x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "An ice cream company sells ice cream as cones and tubs. A cone of ice cream contains 3 oz of ice cream while a tub contains 24 oz of ice cream.  Due to the recent wave of heat and a recent promotion, the company expects to sell at least 2 times more cones than tubs of ice cream. However, to reduce labour time and looking at previous sales, management decided to require stores to at least create 30 tubs of ice cream. If the company has the capacity to make 5000 oz of ice cream, how many orders of each should be made to maximize the total number of sales of ice cream?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent cones, x_1 to represent tubs. Then the optimization problem is:\nmaximize:\n1.0x_0 + 1.0x_1\nsubject to:\n-1.0x_0 + 2.0x_1 <= 0.0\n0.0x_0 - 1.0x_1 <= -30.0\n3.0x_0 + 24.0x_1 <= 5000.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A commercial fishing company has available 200 square kilometers of water that they can fish from. They can either allocate a square kilometer for fish farming or trawling. For each square kilometer of ocean, fish farming causes 8 units of pollution and nets 4 tons of fish and requires 6 workers every day. For each square kilometer of ocean, trawling causes 10 units of pollution, nets 3 tons of fish and requires 2 workers every day. Due to environmental regulations, there must be at most 1700 units of pollution and the company has available 500 workers daily. Find the proportion of lands that use each fishing technique to maximize the daily yield of fish."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent fish farming, x_1 to represent trawling. Then the optimization problem is:\nmaximize:\n4.0x_0 + 3.0x_1\nsubject to:\n8.0x_0 + 10.0x_1 <= 1700.0\n6.0x_0 + 2.0x_1 <= 500.0\n1.0x_0 + 1.0x_1 <= 200.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A chemical company makes an acidic liquid and a basic liquid using two types of techniques, reaction X and reaction Y. Reaction X can make 35 au of the acidic liquid and 75 au of the basic liquid per minute. Reaction Y can make 42 au of the acidic liquid and 35 au of the basic liquid per minute. Furthermore, reaction X requires 18 units of heat every minute while reaction Y requires 12 units of heat every minute. The chemical company has the capacity to generate at most 1400 units of heat every minute. If the chemical company needs to make at least 900 au of the acidic liquid and 1200 au of the basic liquid per minute, how many minutes should each reaction be run for to minimize the total time needed?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent reaction X, x_1 to represent reaction Y.. Then the optimization problem is:\nminimize:\n1.0x_0 + 1.0x_1\nsubject to:\n-35.0x_0 - 42.0x_1 <= -900.0\n-75.0x_0 - 35.0x_1 <= -1200.0\n18.0x_0 + 12.0x_1 <= 1400.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "An arcade is implementing two systems, a card-based system and a coin-based system. A card-based system can accept 60 guests per hour. Conversely, a coin-based system can only accept 45 guests per hour. The card-based machine needs 6 units of electricity every hour while the coin-based machine needs only 4 units of electricity every hour. The arcade needs to be able to accept at least 1500 guests per hour but only has access to 145 units of electricity every hour. Since most guests prefer to use cards, there must be more card-based than coin-based machines. How many of each machine should be kept in the arcade to minimize the total number of machines in the arcade?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent card-based system, x_1 to represent coin-based system. Then the optimization problem is:\nminimize:\n1.0x_0 + 1.0x_1\nsubject to:\n-60.0x_0 - 1.0x_1 <= -1500.0\n6.0x_0 + 4.0x_1 <= 145.0\n-1.0x_0 + 1.0x_1 <= -1.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A tea shop brews two types of teas; black and green tea. Brewing black tea takes 2 minutes and green tea 3 minutes. It takes 7 units of tea leaves and 15 units of filtered hot water to make a cup of black tea. It takes 5 units of tea leaves and 18 units of filtered hot water to make a cup of green tea. The owner of the tea shop has a deal with her distributer to acquire 700 units of tea leaves and 700 units of filtered hot water every week.  The tea shop also has a repeating customer in a Japanese restaurant to brew green tea for them. Therefore, the shop must brew at least four times more green tea than black tea. How many of each type of tea should be made to minimize the total time spent brewing tea?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent black, x_1 to represent green tea. Then the optimization problem is:\nminimize:\n2.0x_0 + 3.0x_1\nsubject to:\n7.0x_0 + 5.0x_1 <= 700.0\n15.0x_0 + 18.0x_1 <= 700.0\n4.0x_0 - 1.0x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A construction site can use two transfer methods to move equipment using cranes or elevators. Each crane can transport 5 units of equipment and costs $2000 per hour. Each elevator can transport 2 units of equipment and costs $500 per hour. The construction site needs to transport at least 90 units of equipment and has available $30000. There must be at least three times more elevators than cranes. How many of each type of transfer method should be done to minimize the total number of transfer methods?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent cranes, x_1 to represent elevators. Then the optimization problem is:\nminimize:\n1.0x_0 + 1.0x_1\nsubject to:\n-5.0x_0 - 2.0x_1 <= -90.0\n2000.0x_0 + 500.0x_1 <= 30000.0\n3.0x_0 - 1.0x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "An engineering kids kit has two sets, a mechanical and chemistry kit. The mechanical kit requires 2 units of plastic, 4 units of materials and entertains a kid for 4 hours. The chemistry kit requires 3 units of plastic, 7 units of materials and entertains a kid for 2 hours. The chemistry kit however produces 8 units of waste while the mechanical kit produces 5 units of waste. The company has available 500 units of plastic and 450 units of materials. If the company has committed to producing at most 300 units of waste, how many of each type of kit should the company make to maximize the number of hours of entertainment?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent mechanical, x_1 to represent chemistry kit. Then the optimization problem is:\nmaximize:\n4.0x_0 + 2.0x_1\nsubject to:\n2.0x_0 + 3.0x_1 <= 500.0\n4.0x_0 + 7.0x_1 <= 450.0\n5.0x_0 + 8.0x_1 <= 300.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "An extremely large mall needs at least 100 transportation methods for customers to move up and down floors. They can either purchase an escalator or an elevator. Due to space limitations, there must be more escalators than elevators, but for convenience, there must be at least 10 elevators. An elevator can transport 1000 customers every day and uses 6 units of electricity in that time span. An escalator can transport 2400 customers every day and uses 9 units of electricity in that time span. The mall has available 800 units of electricity every day. How many of each transportation method should the mall install to maximize the number of customers they can transport every day?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent escalator, x_1 to represent elevator. Then the optimization problem is:\nmaximize:\n2400.0x_0 + 1000.0x_1\nsubject to:\n-1.0x_0 - 1.0x_1 <= -100.0\n0.0x_0 - 1.0x_1 <= -10.0\n9.0x_0 + 6.0x_1 <= 800.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A fitness trainer is scheduling her client to eat more fruits and vegetables to meet their vitamin and fiber requirements. A pack of fruits contains 4 units of vitamin and 7.5 units of fiber. A pack of vegetables contains 7 units of vitamin and 5 units of fiber. The client must meet their weekly minimum requirements of 100 units of vitamin and 120 units of fiber. In addition, because fruits contain more hydration, the client must eat at least twice as many packs of fruits as packs of vegetables. If a pack of fruits contains 3 units of sugar and a pack of vegetables contains 1 unit of sugar, how many of packs of each should the client consume to minimize their sugar intake?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent fruits, x_1 to represent vegetables. Then the optimization problem is:\nminimize:\n3.0x_0 + 1.0x_1\nsubject to:\n-4.0x_0 - 7.0x_1 <= -100.0\n-7.5x_0 - 5.0x_1 <= -120.0\n-1.0x_0 + 2.0x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A skiing resort has two methods of getting their customers up to their resort. They can either use a gondola, or a large bus. On average, a gondola can transport skiers and snowboarders at a rate of 20 people per minute whereas a large bus can transport at a rate of 5 people per minute. However, gondolas cost the resort a lot to maintain and at most 40% of the transportation methods implemented can be gondolas. Since large buses are easier to implement, there must be at least ten times more large buses than gondolas. If the manufacturer wants to move at least 500 customers every minute up the mountain, find the minimum transportation implementations that can be used."
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent gondola, x_1 to represent large bus. Then the optimization problem is:\nminimum:\n1.0x_0 + 1.0x_1\nsubject to:\n-20.0x_0 - 5.0x_1 <= -500.0\n0.6x_0 - 0.4x_1 <= 0.0\n10.0x_0 - 1.0x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A dietician recommends his patient drink more juice and vitamin-added milk to increase her vitamin and hydration intake. Each cup of juice contains 12 units of vitamins and 8 units of hydration. Each vitamin-added milk contains 14 units of vitamins and 10 units of hydration. The patient needs to consume at least 180 units of vitamins and 140 units of hydration. Since the patient is slightly lactose-intolerant, there must be at most 10% of all cups of drinks be vitamin-added milk. If each cup of vitamin-added milk contains 3 units of sugar and each cup of juice contains 10 units of sugar, how many cups of each should she drink to minimize her sugar intake?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent juice, x_1 to represent vitamin-added milk. Then the optimization problem is:\nminimize:\n10.0x_0 + 3.0x_1\nsubject to:\n-12.0x_0 - 14.0x_1 <= -180.0\n-8.0x_0 - 10.0x_1 <= -140.0\n-0.1x_0 + 0.9x_1 <= 0.0\n"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "user",
+        "value": "A restaurant chain can make two types of meals, a steak or vegetarian meal. The steak meal makes $18 profit each and it takes 3 minutes for a chef to make. A vegetarian meal makes $9 profit each and takes 2 minutes for a chef make. The restaurant chain needs to make at least $500 profit every day and has available 1000 minutes of chef involvement. How many of each meal should the restaurant try to push through the waiting staff to minimize the total number of meals they need to make?"
+      },
+      {
+        "from": "assistant",
+        "value": "Let x_0 to represent steak, x_1 to represent vegetarian meal. Then the optimization problem is:\nminimize:\n1.0x_0 + 1.0x_1\nsubject to:\n-18.0x_0 - 9.0x_1 <= -500.0\n3.0x_0 + 2.0x_1 <= 1000.0\n"
+      }
+    ]
+  }
+]
